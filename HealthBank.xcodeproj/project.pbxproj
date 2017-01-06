@@ -1,0 +1,863 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C763F1E1CB16C0099473D /* AppDelegate.swift */; };
+		247C76421E1CB16C0099473D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76411E1CB16C0099473D /* ViewController.swift */; };
+		247C76451E1CB16C0099473D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76431E1CB16C0099473D /* Main.storyboard */; };
+		247C76471E1CB16C0099473D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247C76461E1CB16C0099473D /* Assets.xcassets */; };
+		247C764A1E1CB16C0099473D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76481E1CB16C0099473D /* LaunchScreen.storyboard */; };
+		247C76551E1CB16C0099473D /* HealthBankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76541E1CB16C0099473D /* HealthBankTests.swift */; };
+		247C76601E1CB16C0099473D /* HealthBankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C765F1E1CB16C0099473D /* HealthBankUITests.swift */; };
+		247C76651E1CB16D0099473D /* HealthBank WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 247C76641E1CB16D0099473D /* HealthBank WatchKit App.app */; };
+		247C766B1E1CB16D0099473D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76691E1CB16D0099473D /* Interface.storyboard */; };
+		247C766D1E1CB16D0099473D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247C766C1E1CB16D0099473D /* Assets.xcassets */; };
+		247C76741E1CB16D0099473D /* HealthBank WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 247C76731E1CB16D0099473D /* HealthBank WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		247C767B1E1CB16D0099473D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C767A1E1CB16D0099473D /* InterfaceController.swift */; };
+		247C767D1E1CB16D0099473D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C767C1E1CB16D0099473D /* ExtensionDelegate.swift */; };
+		247C767F1E1CB16D0099473D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C767E1E1CB16D0099473D /* NotificationController.swift */; };
+		247C76811E1CB16D0099473D /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76801E1CB16D0099473D /* ComplicationController.swift */; };
+		247C76831E1CB16D0099473D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247C76821E1CB16D0099473D /* Assets.xcassets */; };
+		247C769E1E1CB1C60099473D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247C769D1E1CB1C60099473D /* HealthKit.framework */; };
+		247C76A01E1CB2460099473D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247C769F1E1CB2460099473D /* HealthKit.framework */; };
+		24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		247C76511E1CB16C0099473D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 247C76341E1CB16C0099473D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 247C763B1E1CB16C0099473D;
+			remoteInfo = HealthBank;
+		};
+		247C765C1E1CB16C0099473D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 247C76341E1CB16C0099473D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 247C763B1E1CB16C0099473D;
+			remoteInfo = HealthBank;
+		};
+		247C76661E1CB16D0099473D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 247C76341E1CB16C0099473D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 247C76631E1CB16D0099473D;
+			remoteInfo = "HealthBank WatchKit App";
+		};
+		247C76751E1CB16D0099473D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 247C76341E1CB16C0099473D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 247C76721E1CB16D0099473D;
+			remoteInfo = "HealthBank WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		247C768A1E1CB16D0099473D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				247C76741E1CB16D0099473D /* HealthBank WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C768E1E1CB16D0099473D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				247C76651E1CB16D0099473D /* HealthBank WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		247C763C1E1CB16C0099473D /* HealthBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		247C763F1E1CB16C0099473D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		247C76411E1CB16C0099473D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		247C76441E1CB16C0099473D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		247C76461E1CB16C0099473D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		247C76491E1CB16C0099473D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		247C764B1E1CB16C0099473D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		247C76501E1CB16C0099473D /* HealthBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		247C76541E1CB16C0099473D /* HealthBankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBankTests.swift; sourceTree = "<group>"; };
+		247C76561E1CB16C0099473D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		247C765B1E1CB16C0099473D /* HealthBankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthBankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		247C765F1E1CB16C0099473D /* HealthBankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBankUITests.swift; sourceTree = "<group>"; };
+		247C76611E1CB16C0099473D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		247C76641E1CB16D0099473D /* HealthBank WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HealthBank WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		247C766A1E1CB16D0099473D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		247C766C1E1CB16D0099473D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		247C766E1E1CB16D0099473D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		247C76731E1CB16D0099473D /* HealthBank WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HealthBank WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		247C76791E1CB16D0099473D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		247C767A1E1CB16D0099473D /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		247C767C1E1CB16D0099473D /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		247C767E1E1CB16D0099473D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		247C76801E1CB16D0099473D /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		247C76821E1CB16D0099473D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		247C76841E1CB16D0099473D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		247C769B1E1CB1B80099473D /* HealthBank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthBank.entitlements; sourceTree = "<group>"; };
+		247C769C1E1CB1C60099473D /* HealthBank WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HealthBank WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		247C769D1E1CB1C60099473D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		247C769F1E1CB2460099473D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		247C76391E1CB16C0099473D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C76A01E1CB2460099473D /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C764D1E1CB16C0099473D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C76581E1CB16C0099473D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C76701E1CB16D0099473D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C769E1E1CB1C60099473D /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		247C76331E1CB16C0099473D = {
+			isa = PBXGroup;
+			children = (
+				247C763E1E1CB16C0099473D /* HealthBank */,
+				247C76531E1CB16C0099473D /* HealthBankTests */,
+				247C765E1E1CB16C0099473D /* HealthBankUITests */,
+				247C76681E1CB16D0099473D /* HealthBank WatchKit App */,
+				247C76771E1CB16D0099473D /* HealthBank WatchKit Extension */,
+				247C763D1E1CB16C0099473D /* Products */,
+				247C76981E1CB1B80099473D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		247C763D1E1CB16C0099473D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				247C763C1E1CB16C0099473D /* HealthBank.app */,
+				247C76501E1CB16C0099473D /* HealthBankTests.xctest */,
+				247C765B1E1CB16C0099473D /* HealthBankUITests.xctest */,
+				247C76641E1CB16D0099473D /* HealthBank WatchKit App.app */,
+				247C76731E1CB16D0099473D /* HealthBank WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247C763E1E1CB16C0099473D /* HealthBank */ = {
+			isa = PBXGroup;
+			children = (
+				247C769B1E1CB1B80099473D /* HealthBank.entitlements */,
+				247C763F1E1CB16C0099473D /* AppDelegate.swift */,
+				247C76411E1CB16C0099473D /* ViewController.swift */,
+				24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */,
+				247C76431E1CB16C0099473D /* Main.storyboard */,
+				247C76461E1CB16C0099473D /* Assets.xcassets */,
+				247C76481E1CB16C0099473D /* LaunchScreen.storyboard */,
+				247C764B1E1CB16C0099473D /* Info.plist */,
+			);
+			path = HealthBank;
+			sourceTree = "<group>";
+		};
+		247C76531E1CB16C0099473D /* HealthBankTests */ = {
+			isa = PBXGroup;
+			children = (
+				247C76541E1CB16C0099473D /* HealthBankTests.swift */,
+				247C76561E1CB16C0099473D /* Info.plist */,
+			);
+			path = HealthBankTests;
+			sourceTree = "<group>";
+		};
+		247C765E1E1CB16C0099473D /* HealthBankUITests */ = {
+			isa = PBXGroup;
+			children = (
+				247C765F1E1CB16C0099473D /* HealthBankUITests.swift */,
+				247C76611E1CB16C0099473D /* Info.plist */,
+			);
+			path = HealthBankUITests;
+			sourceTree = "<group>";
+		};
+		247C76681E1CB16D0099473D /* HealthBank WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				247C76691E1CB16D0099473D /* Interface.storyboard */,
+				247C766C1E1CB16D0099473D /* Assets.xcassets */,
+				247C766E1E1CB16D0099473D /* Info.plist */,
+			);
+			path = "HealthBank WatchKit App";
+			sourceTree = "<group>";
+		};
+		247C76771E1CB16D0099473D /* HealthBank WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				247C769C1E1CB1C60099473D /* HealthBank WatchKit Extension.entitlements */,
+				247C767A1E1CB16D0099473D /* InterfaceController.swift */,
+				247C767C1E1CB16D0099473D /* ExtensionDelegate.swift */,
+				247C767E1E1CB16D0099473D /* NotificationController.swift */,
+				247C76801E1CB16D0099473D /* ComplicationController.swift */,
+				247C76821E1CB16D0099473D /* Assets.xcassets */,
+				247C76841E1CB16D0099473D /* Info.plist */,
+				247C76781E1CB16D0099473D /* Supporting Files */,
+			);
+			path = "HealthBank WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		247C76781E1CB16D0099473D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				247C76791E1CB16D0099473D /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		247C76981E1CB1B80099473D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				247C769F1E1CB2460099473D /* HealthKit.framework */,
+				247C769D1E1CB1C60099473D /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		247C763B1E1CB16C0099473D /* HealthBank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247C768F1E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank" */;
+			buildPhases = (
+				247C76381E1CB16C0099473D /* Sources */,
+				247C76391E1CB16C0099473D /* Frameworks */,
+				247C763A1E1CB16C0099473D /* Resources */,
+				247C768E1E1CB16D0099473D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				247C76671E1CB16D0099473D /* PBXTargetDependency */,
+			);
+			name = HealthBank;
+			productName = HealthBank;
+			productReference = 247C763C1E1CB16C0099473D /* HealthBank.app */;
+			productType = "com.apple.product-type.application";
+		};
+		247C764F1E1CB16C0099473D /* HealthBankTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247C76921E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBankTests" */;
+			buildPhases = (
+				247C764C1E1CB16C0099473D /* Sources */,
+				247C764D1E1CB16C0099473D /* Frameworks */,
+				247C764E1E1CB16C0099473D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				247C76521E1CB16C0099473D /* PBXTargetDependency */,
+			);
+			name = HealthBankTests;
+			productName = HealthBankTests;
+			productReference = 247C76501E1CB16C0099473D /* HealthBankTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		247C765A1E1CB16C0099473D /* HealthBankUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247C76951E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBankUITests" */;
+			buildPhases = (
+				247C76571E1CB16C0099473D /* Sources */,
+				247C76581E1CB16C0099473D /* Frameworks */,
+				247C76591E1CB16C0099473D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				247C765D1E1CB16C0099473D /* PBXTargetDependency */,
+			);
+			name = HealthBankUITests;
+			productName = HealthBankUITests;
+			productReference = 247C765B1E1CB16C0099473D /* HealthBankUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		247C76631E1CB16D0099473D /* HealthBank WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247C768B1E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank WatchKit App" */;
+			buildPhases = (
+				247C76621E1CB16D0099473D /* Resources */,
+				247C768A1E1CB16D0099473D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				247C76761E1CB16D0099473D /* PBXTargetDependency */,
+			);
+			name = "HealthBank WatchKit App";
+			productName = "HealthBank WatchKit App";
+			productReference = 247C76641E1CB16D0099473D /* HealthBank WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		247C76721E1CB16D0099473D /* HealthBank WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247C76871E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank WatchKit Extension" */;
+			buildPhases = (
+				247C766F1E1CB16D0099473D /* Sources */,
+				247C76701E1CB16D0099473D /* Frameworks */,
+				247C76711E1CB16D0099473D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HealthBank WatchKit Extension";
+			productName = "HealthBank WatchKit Extension";
+			productReference = 247C76731E1CB16D0099473D /* HealthBank WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		247C76341E1CB16C0099473D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Tropopause, LLC";
+				TargetAttributes = {
+					247C763B1E1CB16C0099473D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 335LQ9PW5C;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					247C764F1E1CB16C0099473D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 335LQ9PW5C;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 247C763B1E1CB16C0099473D;
+					};
+					247C765A1E1CB16C0099473D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 335LQ9PW5C;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 247C763B1E1CB16C0099473D;
+					};
+					247C76631E1CB16D0099473D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 335LQ9PW5C;
+						ProvisioningStyle = Automatic;
+					};
+					247C76721E1CB16D0099473D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 335LQ9PW5C;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 247C76371E1CB16C0099473D /* Build configuration list for PBXProject "HealthBank" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 247C76331E1CB16C0099473D;
+			productRefGroup = 247C763D1E1CB16C0099473D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				247C763B1E1CB16C0099473D /* HealthBank */,
+				247C764F1E1CB16C0099473D /* HealthBankTests */,
+				247C765A1E1CB16C0099473D /* HealthBankUITests */,
+				247C76631E1CB16D0099473D /* HealthBank WatchKit App */,
+				247C76721E1CB16D0099473D /* HealthBank WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		247C763A1E1CB16C0099473D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C764A1E1CB16C0099473D /* LaunchScreen.storyboard in Resources */,
+				247C76471E1CB16C0099473D /* Assets.xcassets in Resources */,
+				247C76451E1CB16C0099473D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C764E1E1CB16C0099473D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C76591E1CB16C0099473D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C76621E1CB16D0099473D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C766D1E1CB16D0099473D /* Assets.xcassets in Resources */,
+				247C766B1E1CB16D0099473D /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C76711E1CB16D0099473D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C76831E1CB16D0099473D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		247C76381E1CB16C0099473D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C76421E1CB16C0099473D /* ViewController.swift in Sources */,
+				247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */,
+				24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C764C1E1CB16C0099473D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C76551E1CB16C0099473D /* HealthBankTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C76571E1CB16C0099473D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C76601E1CB16C0099473D /* HealthBankUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247C766F1E1CB16D0099473D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247C767F1E1CB16D0099473D /* NotificationController.swift in Sources */,
+				247C76811E1CB16D0099473D /* ComplicationController.swift in Sources */,
+				247C767D1E1CB16D0099473D /* ExtensionDelegate.swift in Sources */,
+				247C767B1E1CB16D0099473D /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		247C76521E1CB16C0099473D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 247C763B1E1CB16C0099473D /* HealthBank */;
+			targetProxy = 247C76511E1CB16C0099473D /* PBXContainerItemProxy */;
+		};
+		247C765D1E1CB16C0099473D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 247C763B1E1CB16C0099473D /* HealthBank */;
+			targetProxy = 247C765C1E1CB16C0099473D /* PBXContainerItemProxy */;
+		};
+		247C76671E1CB16D0099473D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 247C76631E1CB16D0099473D /* HealthBank WatchKit App */;
+			targetProxy = 247C76661E1CB16D0099473D /* PBXContainerItemProxy */;
+		};
+		247C76761E1CB16D0099473D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 247C76721E1CB16D0099473D /* HealthBank WatchKit Extension */;
+			targetProxy = 247C76751E1CB16D0099473D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		247C76431E1CB16C0099473D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247C76441E1CB16C0099473D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		247C76481E1CB16C0099473D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247C76491E1CB16C0099473D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		247C76691E1CB16D0099473D /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247C766A1E1CB16D0099473D /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		247C76851E1CB16D0099473D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		247C76861E1CB16D0099473D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		247C76881E1CB16D0099473D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HealthBank WatchKit Extension/HealthBank WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = "HealthBank WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		247C76891E1CB16D0099473D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HealthBank WatchKit Extension/HealthBank WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = "HealthBank WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		247C768C1E1CB16D0099473D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				IBSC_MODULE = HealthBank_WatchKit_Extension;
+				INFOPLIST_FILE = "HealthBank WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		247C768D1E1CB16D0099473D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				IBSC_MODULE = HealthBank_WatchKit_Extension;
+				INFOPLIST_FILE = "HealthBank WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		247C76901E1CB16D0099473D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthBank/HealthBank.entitlements;
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = HealthBank/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		247C76911E1CB16D0099473D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthBank/HealthBank.entitlements;
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = HealthBank/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		247C76931E1CB16D0099473D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = HealthBankTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthBank.app/HealthBank";
+			};
+			name = Debug;
+		};
+		247C76941E1CB16D0099473D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = HealthBankTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthBank.app/HealthBank";
+			};
+			name = Release;
+		};
+		247C76961E1CB16D0099473D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = HealthBankUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = HealthBank;
+			};
+			name = Debug;
+		};
+		247C76971E1CB16D0099473D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				INFOPLIST_FILE = HealthBankUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = HealthBank;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		247C76371E1CB16C0099473D /* Build configuration list for PBXProject "HealthBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247C76851E1CB16D0099473D /* Debug */,
+				247C76861E1CB16D0099473D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247C76871E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247C76881E1CB16D0099473D /* Debug */,
+				247C76891E1CB16D0099473D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247C768B1E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247C768C1E1CB16D0099473D /* Debug */,
+				247C768D1E1CB16D0099473D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247C768F1E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247C76901E1CB16D0099473D /* Debug */,
+				247C76911E1CB16D0099473D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247C76921E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBankTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247C76931E1CB16D0099473D /* Debug */,
+				247C76941E1CB16D0099473D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247C76951E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBankUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247C76961E1CB16D0099473D /* Debug */,
+				247C76971E1CB16D0099473D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 247C76341E1CB16C0099473D /* Project object */;
+}
