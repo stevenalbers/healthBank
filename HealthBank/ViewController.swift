@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -64,7 +65,6 @@ class ViewController: UIViewController {
                 }
                 
                 if let error = error { print(error) }
-            
             }
             
         }
