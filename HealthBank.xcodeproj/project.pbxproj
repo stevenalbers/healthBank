@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2419012D1E221446000DCA1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2419012C1E221446000DCA1B /* CoreData.framework */; };
 		241901301E2214F0000DCA1B /* Bank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2419012E1E2214F0000DCA1B /* Bank.xcdatamodeld */; };
+		241901701E25E163000DCA1B /* StepBank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419016E1E25E163000DCA1B /* StepBank+CoreDataClass.swift */; };
+		241901711E25E163000DCA1B /* StepBank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419016F1E25E163000DCA1B /* StepBank+CoreDataProperties.swift */; };
 		247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C763F1E1CB16C0099473D /* AppDelegate.swift */; };
 		247C76421E1CB16C0099473D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76411E1CB16C0099473D /* ViewController.swift */; };
 		247C76451E1CB16C0099473D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76431E1CB16C0099473D /* Main.storyboard */; };
@@ -89,6 +91,8 @@
 /* Begin PBXFileReference section */
 		2419012C1E221446000DCA1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2419012F1E2214F0000DCA1B /* Bank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bank.xcdatamodel; sourceTree = "<group>"; };
+		2419016E1E25E163000DCA1B /* StepBank+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StepBank+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2419016F1E25E163000DCA1B /* StepBank+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StepBank+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		247C763C1E1CB16C0099473D /* HealthBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		247C763F1E1CB16C0099473D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		247C76411E1CB16C0099473D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 		247C76331E1CB16C0099473D = {
 			isa = PBXGroup;
 			children = (
+				2419016E1E25E163000DCA1B /* StepBank+CoreDataClass.swift */,
+				2419016F1E25E163000DCA1B /* StepBank+CoreDataProperties.swift */,
 				247C763E1E1CB16C0099473D /* HealthBank */,
 				247C76531E1CB16C0099473D /* HealthBankTests */,
 				247C765E1E1CB16C0099473D /* HealthBankUITests */,
@@ -472,6 +478,8 @@
 			files = (
 				247C76421E1CB16C0099473D /* ViewController.swift in Sources */,
 				241901301E2214F0000DCA1B /* Bank.xcdatamodeld in Sources */,
+				241901701E25E163000DCA1B /* StepBank+CoreDataClass.swift in Sources */,
+				241901711E25E163000DCA1B /* StepBank+CoreDataProperties.swift in Sources */,
 				247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */,
 				24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */,
 			);

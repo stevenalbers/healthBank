@@ -10,6 +10,36 @@ import UIKit
 import HealthKit
 import CoreData
 
+class StepBankManager
+{
+    var context: NSManagedObjectContext
+    
+    init(context: NSManagedObjectContext){
+        self.context = context
+    }
+    
+    
+    func CreateStepBank() -> StepBank
+    {
+        let newItem = NSEntityDescription.insertNewObject(forEntityName: StepBank.entityName, into: context) as! StepBank
+        
+        newItem.stepBank = 0
+        
+        return newItem
+    }
+    // Returns the amount currently stored in the bank
+    func GetStepBankValue()
+    {
+        
+    }
+    
+    
+    func SetStepBankValue()
+    {
+        
+    }
+}
+
 class ViewController: UIViewController {
     
     //let healthStore = HKHealthStore()
@@ -88,6 +118,9 @@ class ViewController: UIViewController {
         healthKitManager.healthStore?.execute(statisticsSumQuery)
         self.StepLabel.text = String(self.stepsCount)
     }
+
+    
+    
 
 }
 
