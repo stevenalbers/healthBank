@@ -8,35 +8,57 @@
 
 import UIKit
 import HealthKit
-import CoreData
+import RealmSwift
+
+class BankRealm: Object
+{
+    dynamic var steps = 0
+}
 
 class StepBankManager
 {
-    var context: NSManagedObjectContext
+    // TODO: Make try with do/catch handling
+    let realm = try! Realm()
+    lazy var steps: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
+    /*var context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext){
         self.context = context
-    }
+    }*/
     
     
-    func CreateStepBank() -> StepBank
+    func CreateStepBank()
     {
-        let newItem = NSEntityDescription.insertNewObject(forEntityName: StepBank.entityName, into: context) as! StepBank
-        
-        newItem.stepBank = 0
-        
-        return newItem
+        if steps.count == 0 { // 1
+            
+            try! realm.write() { // 2
+                
+                let defaultSteps = 5
+                let newBank = BankRealm()
+                newBank.steps = defaultSteps
+                self.realm.add(newBank)
+            }
+        }
+
     }
     // Returns the amount currently stored in the bank
-    func GetStepBankValue()
+    func GetStepBankValue() -> Int
     {
+        let bank = try! realm.objects(BankRealm.self)
+
+        return bank.sum(ofProperty: "steps")
         
     }
     
     
-    func SetStepBankValue()
+    func SetStepBankValue(updatedSteps: Int)
     {
-        
+        try! realm.write()
+        {
+            let bankUpdate = BankRealm()
+            bankUpdate.steps = updatedSteps
+            self.realm.add(bankUpdate, update: true)
+        }
     }
 }
 
@@ -44,6 +66,7 @@ class ViewController: UIViewController {
     
     //let healthStore = HKHealthStore()
     let healthKitManager = HealthKitManager.sharedInstance
+    let bankManager = StepBankManager()
     var stepsCount: Int = 0
 
     @IBOutlet weak var StepLabel: UILabel!
@@ -63,7 +86,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Realm.Configuration.defaultConfiguration.description)
         // Do any additional setup after loading the view, typically from a nib.
+        bankManager.CreateStepBank()
         
         check()
         

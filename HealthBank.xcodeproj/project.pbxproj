@@ -11,6 +11,10 @@
 		241901301E2214F0000DCA1B /* Bank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2419012E1E2214F0000DCA1B /* Bank.xcdatamodeld */; };
 		241901701E25E163000DCA1B /* StepBank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419016E1E25E163000DCA1B /* StepBank+CoreDataClass.swift */; };
 		241901711E25E163000DCA1B /* StepBank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2419016F1E25E163000DCA1B /* StepBank+CoreDataProperties.swift */; };
+		242C225D1E51719200FF6E0E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225B1E51719200FF6E0E /* Realm.framework */; };
+		242C225E1E51719200FF6E0E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225B1E51719200FF6E0E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		242C225F1E51719200FF6E0E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225C1E51719200FF6E0E /* RealmSwift.framework */; };
+		242C22601E51719200FF6E0E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225C1E51719200FF6E0E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C763F1E1CB16C0099473D /* AppDelegate.swift */; };
 		247C76421E1CB16C0099473D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76411E1CB16C0099473D /* ViewController.swift */; };
 		247C76451E1CB16C0099473D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76431E1CB16C0099473D /* Main.storyboard */; };
@@ -64,6 +68,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		242C22611E51719200FF6E0E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				242C22601E51719200FF6E0E /* RealmSwift.framework in Embed Frameworks */,
+				242C225E1E51719200FF6E0E /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		247C768A1E1CB16D0099473D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,6 +109,8 @@
 		2419012F1E2214F0000DCA1B /* Bank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bank.xcdatamodel; sourceTree = "<group>"; };
 		2419016E1E25E163000DCA1B /* StepBank+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StepBank+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2419016F1E25E163000DCA1B /* StepBank+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StepBank+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		242C225B1E51719200FF6E0E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		242C225C1E51719200FF6E0E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		247C763C1E1CB16C0099473D /* HealthBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		247C763F1E1CB16C0099473D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		247C76411E1CB16C0099473D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +148,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242C225D1E51719200FF6E0E /* Realm.framework in Frameworks */,
 				2419012D1E221446000DCA1B /* CoreData.framework in Frameworks */,
+				242C225F1E51719200FF6E0E /* RealmSwift.framework in Frameworks */,
 				247C76A01E1CB2460099473D /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +183,8 @@
 		247C76331E1CB16C0099473D = {
 			isa = PBXGroup;
 			children = (
+				242C225B1E51719200FF6E0E /* Realm.framework */,
+				242C225C1E51719200FF6E0E /* RealmSwift.framework */,
 				2419016E1E25E163000DCA1B /* StepBank+CoreDataClass.swift */,
 				2419016F1E25E163000DCA1B /* StepBank+CoreDataProperties.swift */,
 				247C763E1E1CB16C0099473D /* HealthBank */,
@@ -275,6 +297,7 @@
 				247C76391E1CB16C0099473D /* Frameworks */,
 				247C763A1E1CB16C0099473D /* Resources */,
 				247C768E1E1CB16D0099473D /* Embed Watch Content */,
+				242C22611E51719200FF6E0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -736,6 +759,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthBank/HealthBank.entitlements;
 				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HealthBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank;
@@ -750,6 +777,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthBank/HealthBank.entitlements;
 				DEVELOPMENT_TEAM = 335LQ9PW5C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HealthBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank;
