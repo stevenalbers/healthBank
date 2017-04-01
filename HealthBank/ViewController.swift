@@ -12,7 +12,13 @@ import RealmSwift
 
 class BankRealm: Object
 {
+    dynamic var id = 0
     dynamic var steps = 0
+    
+    override class func primaryKey() -> String?
+    {
+        return "id"
+    }
 }
 
 class StepBankManager
@@ -68,21 +74,39 @@ class ViewController: UIViewController {
     let healthKitManager = HealthKitManager.sharedInstance
     let bankManager = StepBankManager()
     var stepsCount: Int = 0
+    var stepMultiplier: Double = 1.0
 
     @IBOutlet weak var StepLabel: UILabel!
 
     @IBAction func UpdateSteps(_ sender: Any) {
-        StepLabel.text = String(stepsCount)
+        stepsCount = bankManager.GetStepBankValue()
+        print("Update Steps: \(stepsCount)")
+        StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
     @IBAction func UseSteps(_ sender: Any) {
         if(stepsCount - 50 >= 0)
         {
             stepsCount = stepsCount - 50
+            print("Use Steps: \(stepsCount)")
+
+            stepMultiplier = stepMultiplier + 0.1
+            print("Multiplier is now: \(stepMultiplier)")
+
+            bankManager.SetStepBankValue(updatedSteps: stepsCount)
             StepLabel.text = String(stepsCount)
         }
     }
 
+    @IBAction func AddSteps(_ sender: Any) {
+        let multipliedSteps = 50.0 * stepMultiplier
+
+        stepsCount = stepsCount + Int(multipliedSteps)
+        print("Steps Added: \(multipliedSteps)")
+
+        bankManager.SetStepBankValue(updatedSteps: stepsCount)
+        StepLabel.text = String(stepsCount)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,8 +115,15 @@ class ViewController: UIViewController {
         bankManager.CreateStepBank()
         
         check()
+        stepsCount = queryStepsSum()
+        
+        // This is terrible; use a callback instead
+        sleep(1)
         
         print("Steps: \(stepsCount)")
+
+        bankManager.SetStepBankValue(updatedSteps: stepsCount)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,7 +135,6 @@ class ViewController: UIViewController {
     {
         if HKHealthStore.isHealthDataAvailable()
         {
-            print("hello")
             // State the health data type(s) we want to read from HealthKit.
             let healthDataToRead = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
             
@@ -114,7 +144,7 @@ class ViewController: UIViewController {
             // Request authorization to read and/or write the specific data.
             healthKitManager.healthStore?.requestAuthorization(toShare: healthDataToWrite, read: healthDataToRead) { (success, error) in
                 if success {
-                    self.queryStepsSum()
+                    print("success")
                 } else {
                     print("failure")
                 }
@@ -129,19 +159,25 @@ class ViewController: UIViewController {
         }
     }
     
-    func queryStepsSum() {
+    // This query:
+    // Get number of steps since last time
+    // multiply by the update factor
+    func queryStepsSum() -> Int {
+        var numberOfSteps: Int = 0
         let sumOption = HKStatisticsOptions.cumulativeSum
         let statisticsSumQuery = HKStatisticsQuery(quantityType: healthKitManager.stepsCount!, quantitySamplePredicate: nil, options: sumOption) { [unowned self] (query, result, error) in
             if let sumQuantity = result?.sumQuantity() {
                 
-                let numberOfSteps = Int(sumQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
+                numberOfSteps = Int(sumQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
+                print ("Query steps: \(numberOfSteps)")
                 self.stepsCount = numberOfSteps
+                //self.bankManager.SetStepBankValue(updatedSteps: numberOfSteps)
                 
             }
-            
         }
         healthKitManager.healthStore?.execute(statisticsSumQuery)
-        self.StepLabel.text = String(self.stepsCount)
+        self.StepLabel.text = "0"
+        return numberOfSteps
     }
 
     
