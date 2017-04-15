@@ -12,8 +12,9 @@ import RealmSwift
 
 class BankRealm: Object
 {
-    dynamic var id = 0
-    dynamic var steps = 0
+    dynamic var id: Int = 0
+    dynamic var steps: Int = 0
+    dynamic var lastLogin: Date = Date()
     
     override class func primaryKey() -> String?
     {
@@ -26,6 +27,7 @@ class StepBankManager
     // TODO: Make try with do/catch handling
     let realm = try! Realm()
     lazy var steps: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
+    lazy var date: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
     /*var context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext){
@@ -56,6 +58,13 @@ class StepBankManager
         
     }
     
+    func GetLastLogin() -> Date
+    {
+        let bank = try! realm.objects(BankRealm.self)
+        
+        return (bank.last!.lastLogin)
+
+    }
     
     func SetStepBankValue(updatedSteps: Int)
     {
@@ -63,6 +72,7 @@ class StepBankManager
         {
             let bankUpdate = BankRealm()
             bankUpdate.steps = updatedSteps
+            bankUpdate.lastLogin = Date()
             self.realm.add(bankUpdate, update: true)
         }
     }
@@ -82,6 +92,7 @@ class ViewController: UIViewController {
         stepsCount = bankManager.GetStepBankValue()
         print("Update Steps: \(stepsCount)")
         StepLabel.text = String(bankManager.GetStepBankValue())
+        print("Last date: \(bankManager.GetLastLogin())")
 
     }
     @IBAction func UseSteps(_ sender: Any) {
@@ -117,10 +128,12 @@ class ViewController: UIViewController {
         check()
         stepsCount = queryStepsSum()
         
+        
         // This is terrible; use a callback instead
         sleep(1)
         
         print("Steps: \(stepsCount)")
+        print(bankManager.date)
 
         bankManager.SetStepBankValue(updatedSteps: stepsCount)
         
