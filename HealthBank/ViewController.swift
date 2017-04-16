@@ -66,14 +66,27 @@ class StepBankManager
 
     }
     
-    func SetStepBankValue(updatedSteps: Int)
+    func AddStepsToBank(updatedSteps: Int)
     {
+        
+        //save it to realm
+        //realm.create(Dog, value: dog, update: true)
+        //get the dog reference from the database
+        //let realmDog = realm.object(ofType: Dog.self, forPrimaryKey: "id")
+        //append dog to person
+        //person.dogs.append(realmDog)
+        let bank = try! realm.objects(BankRealm.self)
+        let newID = (bank.last?.id)! + 1
+        
         try! realm.write()
         {
             let bankUpdate = BankRealm()
             bankUpdate.steps = updatedSteps
             bankUpdate.lastLogin = Date()
-            self.realm.add(bankUpdate, update: true)
+            bankUpdate.id = newID
+            //self.realm.add(bankUpdate!, update: false)
+            self.realm.create(BankRealm.self, value: bankUpdate, update: false)
+
         }
     }
 }
@@ -104,7 +117,7 @@ class ViewController: UIViewController {
             stepMultiplier = stepMultiplier + 0.1
             print("Multiplier is now: \(stepMultiplier)")
 
-            bankManager.SetStepBankValue(updatedSteps: stepsCount)
+            bankManager.AddStepsToBank(updatedSteps: -50)
             StepLabel.text = String(stepsCount)
         }
     }
@@ -115,7 +128,7 @@ class ViewController: UIViewController {
         stepsCount = stepsCount + Int(multipliedSteps)
         print("Steps Added: \(multipliedSteps)")
 
-        bankManager.SetStepBankValue(updatedSteps: stepsCount)
+        bankManager.AddStepsToBank(updatedSteps: Int(multipliedSteps))
         StepLabel.text = String(stepsCount)
     }
     
@@ -126,7 +139,7 @@ class ViewController: UIViewController {
         bankManager.CreateStepBank()
         
         check()
-        stepsCount = queryStepsSum()
+        stepsCount = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         
         // This is terrible; use a callback instead
@@ -135,7 +148,9 @@ class ViewController: UIViewController {
         print("Steps: \(stepsCount)")
         print(bankManager.date)
 
-        bankManager.SetStepBankValue(updatedSteps: stepsCount)
+        bankManager.AddStepsToBank(updatedSteps: stepsCount)
+        StepLabel.text = String(bankManager.GetStepBankValue())
+
         
     }
 
@@ -144,6 +159,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // TODO: Move/rename this
     func check()
     {
         if HKHealthStore.isHealthDataAvailable()
@@ -175,16 +191,17 @@ class ViewController: UIViewController {
     // This query:
     // Get number of steps since last time
     // multiply by the update factor
-    func queryStepsSum() -> Int {
+    func queryStepsSum(previousDate: Date) -> Int {
+        print("Last queried date: \(previousDate)\nCurrent Date: \(Date())")
         var numberOfSteps: Int = 0
         let sumOption = HKStatisticsOptions.cumulativeSum
-        let statisticsSumQuery = HKStatisticsQuery(quantityType: healthKitManager.stepsCount!, quantitySamplePredicate: nil, options: sumOption) { [unowned self] (query, result, error) in
-            if let sumQuantity = result?.sumQuantity() {
-                
-                numberOfSteps = Int(sumQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
+        let predicate = HKQuery.predicateForSamples(withStart: previousDate, end: Date(), options: .strictStartDate)
+        let statisticsSumQuery = HKStatisticsQuery(quantityType: healthKitManager.stepsCount!, quantitySamplePredicate: predicate, options: sumOption) { [unowned self] (query, result, error) in
+            if let newStepQuantity = result?.sumQuantity() {
+                numberOfSteps = Int(newStepQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
                 print ("Query steps: \(numberOfSteps)")
                 self.stepsCount = numberOfSteps
-                //self.bankManager.SetStepBankValue(updatedSteps: numberOfSteps)
+                //self.bankManager.AddStepsToBank(updatedSteps: numberOfSteps)
                 
             }
         }
