@@ -37,11 +37,14 @@ class StepBankManager
     
     func CreateStepBank()
     {
-        if steps.count == 0 { // 1
+        let bank = try! realm.objects(BankRealm.self)
+        let bankStepValue = bank.sum(ofProperty: "steps") as Int
+
+        if bankStepValue == 0 { // 1
             
             try! realm.write() { // 2
                 
-                let defaultSteps = 5
+                let defaultSteps = 0
                 let newBank = BankRealm()
                 newBank.steps = defaultSteps
                 self.realm.add(newBank)
@@ -53,7 +56,8 @@ class StepBankManager
     func GetStepBankValue() -> Int
     {
         let bank = try! realm.objects(BankRealm.self)
-
+        let thing = bank.sum(ofProperty: "steps") as Int
+        print("GetStepBankValue: \(thing)")
         return bank.sum(ofProperty: "steps")
         
     }
@@ -96,17 +100,26 @@ class ViewController: UIViewController {
     //let healthStore = HKHealthStore()
     let healthKitManager = HealthKitManager.sharedInstance
     let bankManager = StepBankManager()
-    var stepsCount: Int = 0
+    var stepsCount: Int = 0  // TODO: Remove this if copying from healthkit is bad
+    var localStepsCount: Int = 0
+
     var stepMultiplier: Double = 1.0
 
     @IBOutlet weak var StepLabel: UILabel!
+    @IBOutlet weak var DialogBox: UILabel!
 
     @IBAction func UpdateSteps(_ sender: Any) {
+        
+        AddQueriedStepsToBank(stepsToAdd: localStepsCount)
+        StepLabel.text = String(bankManager.GetStepBankValue())
+
+        // Old functionality
+        /*
         stepsCount = bankManager.GetStepBankValue()
         print("Update Steps: \(stepsCount)")
         StepLabel.text = String(bankManager.GetStepBankValue())
         print("Last date: \(bankManager.GetLastLogin())")
-
+ */
     }
     @IBAction func UseSteps(_ sender: Any) {
         if(stepsCount - 50 >= 0)
@@ -126,10 +139,18 @@ class ViewController: UIViewController {
         let multipliedSteps = 50.0 * stepMultiplier
 
         stepsCount = stepsCount + Int(multipliedSteps)
-        print("Steps Added: \(multipliedSteps)")
 
         bankManager.AddStepsToBank(updatedSteps: Int(multipliedSteps))
         StepLabel.text = String(stepsCount)
+    }
+    
+    func AddQueriedStepsToBank(stepsToAdd: Int)
+    {
+        let multipliedSteps = stepsToAdd * Int(arc4random_uniform(2) + 1)
+        print("Steps Added: \(multipliedSteps)")
+
+        bankManager.AddStepsToBank(updatedSteps: Int(multipliedSteps))
+        StepLabel.text = String(localStepsCount)
     }
     
     override func viewDidLoad() {
@@ -139,19 +160,17 @@ class ViewController: UIViewController {
         bankManager.CreateStepBank()
         
         check()
-        stepsCount = queryStepsSum(previousDate: bankManager.GetLastLogin())
+        localStepsCount = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         
         // This is terrible; use a callback instead
         sleep(1)
         
-        print("Steps: \(stepsCount)")
+        print("Steps: \(localStepsCount)")
         print(bankManager.date)
-
-        bankManager.AddStepsToBank(updatedSteps: stepsCount)
-        StepLabel.text = String(bankManager.GetStepBankValue())
-
         
+        //AddQueriedStepsToBank(stepsToAdd: localStepsCount)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -201,6 +220,7 @@ class ViewController: UIViewController {
                 numberOfSteps = Int(newStepQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
                 print ("Query steps: \(numberOfSteps)")
                 self.stepsCount = numberOfSteps
+                self.localStepsCount = numberOfSteps
                 //self.bankManager.AddStepsToBank(updatedSteps: numberOfSteps)
                 
             }
