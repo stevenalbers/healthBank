@@ -38,9 +38,8 @@ class StepBankManager
     func CreateStepBank()
     {
         let bank = try! realm.objects(BankRealm.self)
-        let bankStepValue = bank.sum(ofProperty: "steps") as Int
 
-        if bankStepValue == 0 { // 1
+        if (bank.isEmpty == true) { // 1
             
             try! realm.write() { // 2
                 
@@ -107,10 +106,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var StepLabel: UILabel!
     @IBOutlet weak var DialogBox: UILabel!
+    @IBOutlet weak var PurchasesMadeText: UILabel!
+    @IBOutlet weak var CurrentMultiplierText: UILabel!
 
     @IBAction func UpdateSteps(_ sender: Any) {
         
-        AddQueriedStepsToBank(stepsToAdd: localStepsCount)
+        //AddQueriedStepsToBank(stepsToAdd: localStepsCount)
         StepLabel.text = String(bankManager.GetStepBankValue())
 
         // Old functionality
@@ -151,6 +152,8 @@ class ViewController: UIViewController {
 
         bankManager.AddStepsToBank(updatedSteps: Int(multipliedSteps))
         StepLabel.text = String(localStepsCount)
+        DialogBox.text = "Steps Added: \(multipliedSteps)"
+
     }
     
     override func viewDidLoad() {
@@ -169,7 +172,8 @@ class ViewController: UIViewController {
         print("Steps: \(localStepsCount)")
         print(bankManager.date)
         
-        //AddQueriedStepsToBank(stepsToAdd: localStepsCount)
+        AddQueriedStepsToBank(stepsToAdd: localStepsCount)
+        StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
 
