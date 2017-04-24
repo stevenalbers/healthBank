@@ -25,19 +25,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IVH-jk-Xif">
-                                <rect key="frame" x="81" y="189" width="94" height="30"/>
+                                <rect key="frame" x="141" y="125" width="94" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Update Steps"/>
                                 <connections>
                                     <action selector="UpdateSteps:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hKU-4d-D2t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Ua-GA-iWF">
-                                <rect key="frame" x="197" y="189" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Use Steps"/>
-                                <connections>
-                                    <action selector="UseSteps:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pwe-6U-hz0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gfi-2Z-wTe" userLabel="Step Count">
@@ -47,49 +39,43 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cfl-kq-ufX" userLabel="Add Steps">
-                                <rect key="frame" x="144" y="125" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Steps"/>
-                                <connections>
-                                    <action selector="AddSteps:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wt4-8R-V3t"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="diN-Pi-RfQ" userLabel="Purchases Made">
                                 <rect key="frame" x="17" y="445" width="343" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RXB-Yb-Xf0" userLabel="Current Multiplier">
                                 <rect key="frame" x="17" y="553" width="343" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8j7-2q-R85" userLabel="Purchases Made">
-                                <rect key="frame" x="17" y="445" width="343" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9h-VF-ajY" userLabel="Dialog Box">
                                 <rect key="frame" x="17" y="333" width="343" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Ua-GA-iWF" userLabel="Purchase Building">
+                                <rect key="frame" x="123" y="178" width="130" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Purchase Building"/>
+                                <connections>
+                                    <action selector="PurchaseBuilding:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvg-yX-77a"/>
+                                    <action selector="UseSteps:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pwe-6U-hz0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="CurrentMultiplierText" destination="RXB-Yb-Xf0" id="hfH-dU-fkF"/>
                         <outlet property="DialogBox" destination="S9h-VF-ajY" id="LnF-2T-Whh"/>
-                        <outlet property="PurchasesMadeText" destination="8j7-2q-R85" id="jha-Ud-5q9"/>
+                        <outlet property="PurchasesMadeText" destination="diN-Pi-RfQ" id="bwP-00-fLX"/>
                         <outlet property="StepLabel" destination="gfi-2Z-wTe" id="FBM-6Z-4e4"/>
                     </connections>
                 </viewController>
