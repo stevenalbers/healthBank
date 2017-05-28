@@ -14,7 +14,7 @@
 		242C225F1E51719200FF6E0E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225C1E51719200FF6E0E /* RealmSwift.framework */; };
 		242C22601E51719200FF6E0E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225C1E51719200FF6E0E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C763F1E1CB16C0099473D /* AppDelegate.swift */; };
-		247C76421E1CB16C0099473D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76411E1CB16C0099473D /* ViewController.swift */; };
+		247C76421E1CB16C0099473D /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76411E1CB16C0099473D /* OverviewController.swift */; };
 		247C76451E1CB16C0099473D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76431E1CB16C0099473D /* Main.storyboard */; };
 		247C76471E1CB16C0099473D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247C76461E1CB16C0099473D /* Assets.xcassets */; };
 		247C764A1E1CB16C0099473D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76481E1CB16C0099473D /* LaunchScreen.storyboard */; };
@@ -31,6 +31,9 @@
 		247C76831E1CB16D0099473D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247C76821E1CB16D0099473D /* Assets.xcassets */; };
 		247C769E1E1CB1C60099473D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247C769D1E1CB1C60099473D /* HealthKit.framework */; };
 		247C76A01E1CB2460099473D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247C769F1E1CB2460099473D /* HealthKit.framework */; };
+		24C5DB541EDB6ADE0051FB8A /* StepBankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB531EDB6ADE0051FB8A /* StepBankManager.swift */; };
+		24C5DB561EDB6B570051FB8A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB551EDB6B570051FB8A /* TabViewController.swift */; };
+		24C5DB581EDB6C2C0051FB8A /* BuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */; };
 		24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,7 +112,7 @@
 		242C225C1E51719200FF6E0E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		247C763C1E1CB16C0099473D /* HealthBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		247C763F1E1CB16C0099473D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		247C76411E1CB16C0099473D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		247C76411E1CB16C0099473D /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
 		247C76441E1CB16C0099473D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		247C76461E1CB16C0099473D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		247C76491E1CB16C0099473D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -136,6 +139,9 @@
 		247C769C1E1CB1C60099473D /* HealthBank WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HealthBank WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		247C769D1E1CB1C60099473D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		247C769F1E1CB2460099473D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		24C5DB531EDB6ADE0051FB8A /* StepBankManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepBankManager.swift; sourceTree = "<group>"; };
+		24C5DB551EDB6B570051FB8A /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingViewController.swift; sourceTree = "<group>"; };
 		24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +214,10 @@
 			children = (
 				247C769B1E1CB1B80099473D /* HealthBank.entitlements */,
 				247C763F1E1CB16C0099473D /* AppDelegate.swift */,
-				247C76411E1CB16C0099473D /* ViewController.swift */,
+				247C76411E1CB16C0099473D /* OverviewController.swift */,
+				24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */,
+				24C5DB551EDB6B570051FB8A /* TabViewController.swift */,
+				24C5DB531EDB6ADE0051FB8A /* StepBankManager.swift */,
 				24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */,
 				247C76431E1CB16C0099473D /* Main.storyboard */,
 				247C76461E1CB16C0099473D /* Assets.xcassets */,
@@ -493,10 +502,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				247C76421E1CB16C0099473D /* ViewController.swift in Sources */,
+				24C5DB541EDB6ADE0051FB8A /* StepBankManager.swift in Sources */,
+				247C76421E1CB16C0099473D /* OverviewController.swift in Sources */,
 				241901301E2214F0000DCA1B /* Bank.xcdatamodeld in Sources */,
+				24C5DB561EDB6B570051FB8A /* TabViewController.swift in Sources */,
 				247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */,
 				24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */,
+				24C5DB581EDB6C2C0051FB8A /* BuildingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
