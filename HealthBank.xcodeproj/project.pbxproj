@@ -34,6 +34,7 @@
 		24C5DB541EDB6ADE0051FB8A /* StepBankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB531EDB6ADE0051FB8A /* StepBankManager.swift */; };
 		24C5DB561EDB6B570051FB8A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB551EDB6B570051FB8A /* TabViewController.swift */; };
 		24C5DB581EDB6C2C0051FB8A /* BuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */; };
+		24C5DB5A1EDBE4D30051FB8A /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB591EDBE4D30051FB8A /* ResourceManager.swift */; };
 		24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		24C5DB531EDB6ADE0051FB8A /* StepBankManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepBankManager.swift; sourceTree = "<group>"; };
 		24C5DB551EDB6B570051FB8A /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingViewController.swift; sourceTree = "<group>"; };
+		24C5DB591EDBE4D30051FB8A /* ResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,6 +220,7 @@
 				24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */,
 				24C5DB551EDB6B570051FB8A /* TabViewController.swift */,
 				24C5DB531EDB6ADE0051FB8A /* StepBankManager.swift */,
+				24C5DB591EDBE4D30051FB8A /* ResourceManager.swift */,
 				24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */,
 				247C76431E1CB16C0099473D /* Main.storyboard */,
 				247C76461E1CB16C0099473D /* Assets.xcassets */,
@@ -505,6 +508,7 @@
 				24C5DB541EDB6ADE0051FB8A /* StepBankManager.swift in Sources */,
 				247C76421E1CB16C0099473D /* OverviewController.swift in Sources */,
 				241901301E2214F0000DCA1B /* Bank.xcdatamodeld in Sources */,
+				24C5DB5A1EDBE4D30051FB8A /* ResourceManager.swift in Sources */,
 				24C5DB561EDB6B570051FB8A /* TabViewController.swift in Sources */,
 				247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */,
 				24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */,

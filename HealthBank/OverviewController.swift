@@ -27,15 +27,15 @@ class OverviewController: UIViewController {
 
     @IBAction func UpdateSteps(_ sender: Any) {
         
-        localStepsCount = queryStepsSum(previousDate: bankManager.GetLastLogin())
+        ResourceManager.sharedInstance.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         // This is terrible; use a callback instead
         sleep(1)
         
-        print("Steps: \(localStepsCount)")
+        print("Steps: \(ResourceManager.sharedInstance.steps)")
         print(bankManager.date)
         
-        AddQueriedStepsToBank(stepsToAdd: localStepsCount)
+        AddQueriedStepsToBank(stepsToAdd: ResourceManager.sharedInstance.steps)
         StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
@@ -79,7 +79,7 @@ class OverviewController: UIViewController {
         print("Steps Added: \(multipliedSteps)")
 
         bankManager.AddStepsToBank(updatedSteps: Int(multipliedSteps))
-        StepLabel.text = String(localStepsCount)
+        StepLabel.text = String(ResourceManager.sharedInstance.steps)
         DialogBox.text = "Steps Walked: \(stepsToAdd) | Steps Added: \(multipliedSteps)"
         PurchasesMadeText.text = "Buildings Owned: \(buildingValue) | Next Building Cost: \(buildingCost)"
         CurrentMultiplierText.text = "Current multiplier: \(1 + (buildingValue * 0.1))"
@@ -93,15 +93,15 @@ class OverviewController: UIViewController {
         bankManager.InitializeRealmData()
         
         check()
-        localStepsCount = queryStepsSum(previousDate: bankManager.GetLastLogin())
+        ResourceManager.sharedInstance.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         // This is terrible; use a callback instead
         sleep(1)
         
-        print("Steps: \(localStepsCount)")
+        print("Steps: \(ResourceManager.sharedInstance.steps)")
         print(bankManager.date)
         
-        AddQueriedStepsToBank(stepsToAdd: localStepsCount)
+        AddQueriedStepsToBank(stepsToAdd: ResourceManager.sharedInstance.steps)
         StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
@@ -109,6 +109,10 @@ class OverviewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     // TODO: Move/rename this
@@ -152,8 +156,7 @@ class OverviewController: UIViewController {
             if let newStepQuantity = result?.sumQuantity() {
                 numberOfSteps = Int(newStepQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
                 print ("Query steps: \(numberOfSteps)")
-                self.stepsCount = numberOfSteps
-                self.localStepsCount = numberOfSteps
+                ResourceManager.sharedInstance.steps = numberOfSteps
             }
         }
         healthKitManager.healthStore?.execute(statisticsSumQuery)
