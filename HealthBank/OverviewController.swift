@@ -39,27 +39,7 @@ class OverviewController: UIViewController {
         StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
-    @IBAction func PurchaseBuilding(_ sender: Any) {
-        
-        let currentSteps = bankManager.GetStepBankValue()
-        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
-        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
-        print("Building cost: \(buildingCost)")
 
-        if(Double(currentSteps) - buildingCost >= 0)
-        {
-            bankManager.AddStepsToBank(updatedSteps: Int(buildingCost) * -1)
-            bankManager.AddBuilding()
-            StepLabel.text = String(bankManager.GetStepBankValue())
-        }
-        else
-        {
-            print("Can't afford")
-        }
-        PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
-        CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
-
-    }
 
     /*@IBAction func PurchaseBuilding(_ sender: Any) {
         let multipliedSteps = 50.0 * stepMultiplier
@@ -159,6 +139,7 @@ class OverviewController: UIViewController {
                 ResourceManager.sharedInstance.steps = numberOfSteps
             }
         }
+
         healthKitManager.healthStore?.execute(statisticsSumQuery)
         self.StepLabel.text = "0"
         return numberOfSteps
