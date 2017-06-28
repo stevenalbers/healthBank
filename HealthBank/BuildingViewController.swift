@@ -12,9 +12,13 @@ import RealmSwift
 
 class BuildingViewController: UIViewController {
     let healthKitManager = HealthKitManager.sharedInstance
-    let bankManager = StepBankManager()
+    let bankManager = StepBankManager.sharedInstance
     
     var overviewController = OverviewController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
     @IBAction func PurchaseBuilding(_ sender: Any) {
         

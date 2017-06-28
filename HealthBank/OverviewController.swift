@@ -14,7 +14,8 @@ class OverviewController: UIViewController {
     
     //let healthStore = HKHealthStore()
     let healthKitManager = HealthKitManager.sharedInstance
-    let bankManager = StepBankManager()
+    let resourceManager = ResourceManager.sharedInstance
+    let bankManager = StepBankManager.sharedInstance
     var stepsCount: Int = 0  // TODO: Remove this if copying from healthkit is bad
     var localStepsCount: Int = 0
 
@@ -27,15 +28,15 @@ class OverviewController: UIViewController {
 
     @IBAction func UpdateSteps(_ sender: Any) {
         
-        ResourceManager.sharedInstance.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
+        resourceManager.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         // This is terrible; use a callback instead
         sleep(1)
         
-        print("Steps: \(ResourceManager.sharedInstance.steps)")
+        print("Steps: \(resourceManager.steps)")
         print(bankManager.date)
         
-        AddQueriedStepsToBank(stepsToAdd: ResourceManager.sharedInstance.steps)
+        AddQueriedStepsToBank(stepsToAdd: resourceManager.steps)
         StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
@@ -59,7 +60,7 @@ class OverviewController: UIViewController {
         print("Steps Added: \(multipliedSteps)")
 
         bankManager.AddStepsToBank(updatedSteps: Int(multipliedSteps))
-        StepLabel.text = String(ResourceManager.sharedInstance.steps)
+        StepLabel.text = String(resourceManager.steps)
         DialogBox.text = "Steps Walked: \(stepsToAdd) | Steps Added: \(multipliedSteps)"
         PurchasesMadeText.text = "Buildings Owned: \(buildingValue) | Next Building Cost: \(buildingCost)"
         CurrentMultiplierText.text = "Current multiplier: \(1 + (buildingValue * 0.1))"
@@ -73,15 +74,15 @@ class OverviewController: UIViewController {
         bankManager.InitializeRealmData()
         
         check()
-        ResourceManager.sharedInstance.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
+        resourceManager.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         // This is terrible; use a callback instead
         sleep(1)
         
-        print("Steps: \(ResourceManager.sharedInstance.steps)")
+        print("Steps: \(resourceManager.steps)")
         print(bankManager.date)
         
-        AddQueriedStepsToBank(stepsToAdd: ResourceManager.sharedInstance.steps)
+        AddQueriedStepsToBank(stepsToAdd: resourceManager.steps)
         StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
@@ -136,7 +137,7 @@ class OverviewController: UIViewController {
             if let newStepQuantity = result?.sumQuantity() {
                 numberOfSteps = Int(newStepQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
                 print ("Query steps: \(numberOfSteps)")
-                ResourceManager.sharedInstance.steps = numberOfSteps
+                self.resourceManager.steps = numberOfSteps
             }
         }
 

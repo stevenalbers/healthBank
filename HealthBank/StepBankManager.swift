@@ -43,6 +43,9 @@ class StepBankManager
     // Building data goes here
     lazy var buildings: Results<BuildingRealm> = { self.realm.objects(BuildingRealm.self) }()
     
+    static let sharedInstance = StepBankManager()
+    
+    
     func InitializeRealmData()
     {
         let bank = try! realm.objects(BankRealm.self)
