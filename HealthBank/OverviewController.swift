@@ -15,7 +15,7 @@ class OverviewController: UIViewController {
     //let healthStore = HKHealthStore()
     let healthKitManager = HealthKitManager.sharedInstance
     let resourceManager = ResourceManager.sharedInstance
-    let bankManager = StepBankManager.sharedInstance
+    let bankManager = StepBankManager()
     var stepsCount: Int = 0  // TODO: Remove this if copying from healthkit is bad
     var localStepsCount: Int = 0
 
@@ -93,7 +93,14 @@ class OverviewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
+        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
+        
+        StepLabel.text = String(bankManager.GetStepBankValue())
+        PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
+        CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
     }
     
     // TODO: Move/rename this

@@ -12,7 +12,7 @@ import RealmSwift
 
 class BuildingViewController: UIViewController {
     let healthKitManager = HealthKitManager.sharedInstance
-    let bankManager = StepBankManager.sharedInstance
+    let bankManager = StepBankManager()
     
     var overviewController = OverviewController()
     
@@ -31,14 +31,11 @@ class BuildingViewController: UIViewController {
         {
             bankManager.AddStepsToBank(updatedSteps: Int(buildingCost) * -1)
             bankManager.AddBuilding()
-            overviewController.StepLabel.text = String(bankManager.GetStepBankValue())
         }
         else
         {
             print("Can't afford")
         }
-        overviewController.PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
-        overviewController.CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
         
     }
 }
