@@ -12,9 +12,9 @@ import RealmSwift
 
 class BankRealm: Object
 {
-    dynamic var id: Int = 0
-    dynamic var steps: Int = 0
-    dynamic var lastLogin: Date = Date()
+    @objc dynamic var id: Int = 0
+    @objc dynamic var steps: Int = 0
+    @objc dynamic var lastLogin: Date = Date()
     
     override class func primaryKey() -> String?
     {
@@ -25,7 +25,7 @@ class BankRealm: Object
 // For now, because each building is worth the same amount it's easier to just take the sum of IDs logged in the database
 class BuildingRealm: Object
 {
-    dynamic var id: Int = 0
+    @objc dynamic var id: Int = 0
     
     override class func primaryKey() -> String?
     {
@@ -45,8 +45,9 @@ class StepBankManager
     
     func InitializeRealmData()
     {
-        let bank = try! realm.objects(BankRealm.self)
-        let buildings = try! realm.objects(BuildingRealm.self)
+        let bank = realm.objects(BankRealm.self)
+        
+        let buildings = realm.objects(BuildingRealm.self)
         
         if (bank.isEmpty == true) { // 1
             
@@ -70,10 +71,11 @@ class StepBankManager
         
         
     }
+    
     // Returns the amount currently stored in the bank
     func GetStepBankValue() -> Int
     {
-        let bank = try! realm.objects(BankRealm.self)
+        let bank = realm.objects(BankRealm.self)
         let thing = bank.sum(ofProperty: "steps") as Int
         print("GetStepBankValue: \(thing)")
         return bank.sum(ofProperty: "steps")
@@ -82,7 +84,7 @@ class StepBankManager
     
     func GetLastLogin() -> Date
     {
-        let bank = try! realm.objects(BankRealm.self)
+        let bank = realm.objects(BankRealm.self)
         
         return (bank.last!.lastLogin)
         
@@ -90,7 +92,7 @@ class StepBankManager
     
     func AddStepsToBank(updatedSteps: Int)
     {
-        let bank = try! realm.objects(BankRealm.self)
+        let bank = realm.objects(BankRealm.self)
         let newID = (bank.last?.id)! + 1
         
         try! realm.write()
@@ -107,7 +109,7 @@ class StepBankManager
     
     func AddBuilding()
     {
-        let building = try! realm.objects(BuildingRealm.self)
+        let building = realm.objects(BuildingRealm.self)
         let newID = (building.last?.id)! + 1
         try! realm.write()
         {
@@ -121,7 +123,7 @@ class StepBankManager
     
     func GetBuildingValue() -> Double
     {
-        let building = try! realm.objects(BuildingRealm.self)
+        let building = realm.objects(BuildingRealm.self)
         let buildingTotal = building.count
         
         return Double(buildingTotal)
