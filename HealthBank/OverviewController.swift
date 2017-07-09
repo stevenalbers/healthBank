@@ -14,6 +14,7 @@ class OverviewController: UIViewController {
     
     //let healthStore = HKHealthStore()
     let healthKitManager = HealthKitManager.sharedInstance
+    let resourceManager = ResourceManager.sharedInstance
     let bankManager = StepBankManager()
     var stepsCount: Int = 0  // TODO: Remove this if copying from healthkit is bad
     var localStepsCount: Int = 0
@@ -27,39 +28,19 @@ class OverviewController: UIViewController {
 
     @IBAction func UpdateSteps(_ sender: Any) {
         
-        ResourceManager.sharedInstance.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
+        resourceManager.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         // This is terrible; use a callback instead
         sleep(1)
         
-        print("Steps: \(ResourceManager.sharedInstance.steps)")
+        print("Steps: \(resourceManager.steps)")
         print(bankManager.date)
         
-        AddQueriedStepsToBank(stepsToAdd: ResourceManager.sharedInstance.steps)
+        AddQueriedStepsToBank(stepsToAdd: resourceManager.steps)
         StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
-    @IBAction func PurchaseBuilding(_ sender: Any) {
-        
-        let currentSteps = bankManager.GetStepBankValue()
-        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
-        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
-        print("Building cost: \(buildingCost)")
 
-        if(Double(currentSteps) - buildingCost >= 0)
-        {
-            bankManager.AddStepsToBank(updatedSteps: Int(buildingCost) * -1)
-            bankManager.AddBuilding()
-            StepLabel.text = String(bankManager.GetStepBankValue())
-        }
-        else
-        {
-            print("Can't afford")
-        }
-        PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
-        CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
-
-    }
 
     /*@IBAction func PurchaseBuilding(_ sender: Any) {
         let multipliedSteps = 50.0 * stepMultiplier
@@ -79,7 +60,7 @@ class OverviewController: UIViewController {
         print("Steps Added: \(multipliedSteps)")
 
         bankManager.AddStepsToBank(updatedSteps: Int(multipliedSteps))
-        StepLabel.text = String(ResourceManager.sharedInstance.steps)
+        StepLabel.text = String(resourceManager.steps)
         DialogBox.text = "Steps Walked: \(stepsToAdd) | Steps Added: \(multipliedSteps)"
         PurchasesMadeText.text = "Buildings Owned: \(buildingValue) | Next Building Cost: \(buildingCost)"
         CurrentMultiplierText.text = "Current multiplier: \(1 + (buildingValue * 0.1))"
@@ -93,15 +74,15 @@ class OverviewController: UIViewController {
         bankManager.InitializeRealmData()
         
         check()
-        ResourceManager.sharedInstance.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
+        resourceManager.steps = queryStepsSum(previousDate: bankManager.GetLastLogin())
         
         // This is terrible; use a callback instead
         sleep(1)
         
-        print("Steps: \(ResourceManager.sharedInstance.steps)")
+        print("Steps: \(resourceManager.steps)")
         print(bankManager.date)
         
-        AddQueriedStepsToBank(stepsToAdd: ResourceManager.sharedInstance.steps)
+        AddQueriedStepsToBank(stepsToAdd: resourceManager.steps)
         StepLabel.text = String(bankManager.GetStepBankValue())
 
     }
@@ -112,7 +93,14 @@ class OverviewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
+        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
+        
+        StepLabel.text = String(bankManager.GetStepBankValue())
+        PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
+        CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
     }
     
     // TODO: Move/rename this
@@ -156,9 +144,10 @@ class OverviewController: UIViewController {
             if let newStepQuantity = result?.sumQuantity() {
                 numberOfSteps = Int(newStepQuantity.doubleValue(for: self.healthKitManager.stepsUnit))
                 print ("Query steps: \(numberOfSteps)")
-                ResourceManager.sharedInstance.steps = numberOfSteps
+                self.resourceManager.steps = numberOfSteps
             }
         }
+
         healthKitManager.healthStore?.execute(statisticsSumQuery)
         self.StepLabel.text = "0"
         return numberOfSteps

@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		2419012D1E221446000DCA1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2419012C1E221446000DCA1B /* CoreData.framework */; };
 		241901301E2214F0000DCA1B /* Bank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2419012E1E2214F0000DCA1B /* Bank.xcdatamodeld */; };
-		242C225D1E51719200FF6E0E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225B1E51719200FF6E0E /* Realm.framework */; };
-		242C225E1E51719200FF6E0E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225B1E51719200FF6E0E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		242C225F1E51719200FF6E0E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225C1E51719200FF6E0E /* RealmSwift.framework */; };
-		242C22601E51719200FF6E0E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 242C225C1E51719200FF6E0E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C763F1E1CB16C0099473D /* AppDelegate.swift */; };
 		247C76421E1CB16C0099473D /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76411E1CB16C0099473D /* OverviewController.swift */; };
 		247C76451E1CB16C0099473D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76431E1CB16C0099473D /* Main.storyboard */; };
@@ -36,6 +32,11 @@
 		24C5DB581EDB6C2C0051FB8A /* BuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */; };
 		24C5DB5A1EDBE4D30051FB8A /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5DB591EDBE4D30051FB8A /* ResourceManager.swift */; };
 		24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */; };
+		85D82FC9035898B8A9650B03 /* Pods_HealthBankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AE1229A0CF483CD0EB827F /* Pods_HealthBankUITests.framework */; };
+		9243F707F256BCEB4DC7F847 /* Pods_HealthBank_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD2BA4570A010B9AD03C9B2 /* Pods_HealthBank_WatchKit_Extension.framework */; };
+		996CAE79CB0125DBC8368EC9 /* Pods_HealthBankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B3C86CB7748F358ADC5443 /* Pods_HealthBankTests.framework */; };
+		A228AAD5BAB6A5535D85442F /* Pods_HealthBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B188DEEAB98D64A4E3DD353 /* Pods_HealthBank.framework */; };
+		FFEF8541D99083E6EC6DEB12 /* Pods_HealthBank_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2AD58008196EBFAD635FA81 /* Pods_HealthBank_WatchKit_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,18 +71,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		242C22611E51719200FF6E0E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				242C22601E51719200FF6E0E /* RealmSwift.framework in Embed Frameworks */,
-				242C225E1E51719200FF6E0E /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		247C768A1E1CB16D0099473D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +96,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B188DEEAB98D64A4E3DD353 /* Pods_HealthBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E09F7941989F8509D217C96 /* Pods-HealthBankTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBankTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBankTests/Pods-HealthBankTests.release.xcconfig"; sourceTree = "<group>"; };
 		2419012C1E221446000DCA1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2419012F1E2214F0000DCA1B /* Bank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bank.xcdatamodel; sourceTree = "<group>"; };
 		242C225B1E51719200FF6E0E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -145,6 +136,19 @@
 		24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingViewController.swift; sourceTree = "<group>"; };
 		24C5DB591EDBE4D30051FB8A /* ResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		24DB38AF1E1E1498009BAB88 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		24FD7CC3B4676ECC5C00080C /* Pods-HealthBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBank.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBank/Pods-HealthBank.release.xcconfig"; sourceTree = "<group>"; };
+		60FDD7EB3A62DC306BDBCBEB /* Pods-HealthBank WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBank WatchKit App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBank WatchKit App/Pods-HealthBank WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		654BE1BB254D54CA6C3C0B57 /* Pods-HealthBank WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBank WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBank WatchKit App/Pods-HealthBank WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		6B48F28B83D56C1F171B33C0 /* Pods-HealthBankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBankUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBankUITests/Pods-HealthBankUITests.release.xcconfig"; sourceTree = "<group>"; };
+		926FE8C28835B78829851E5B /* Pods-HealthBankUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBankUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBankUITests/Pods-HealthBankUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D4C0AE01554D9B6EB662002 /* Pods-HealthBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBank/Pods-HealthBank.debug.xcconfig"; sourceTree = "<group>"; };
+		A1ED27D1DB817367350C49CA /* Pods-HealthBank WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBank WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBank WatchKit Extension/Pods-HealthBank WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		BAD2BA4570A010B9AD03C9B2 /* Pods_HealthBank_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthBank_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2AD58008196EBFAD635FA81 /* Pods_HealthBank_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthBank_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D223AEC39CF998EA86DE4175 /* Pods-HealthBank WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBank WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBank WatchKit Extension/Pods-HealthBank WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		D4AE1229A0CF483CD0EB827F /* Pods_HealthBankUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthBankUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D821ABA731D3DC0EBD2C334F /* Pods-HealthBankTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBankTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBankTests/Pods-HealthBankTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E3B3C86CB7748F358ADC5443 /* Pods_HealthBankTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthBankTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,10 +156,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242C225D1E51719200FF6E0E /* Realm.framework in Frameworks */,
 				2419012D1E221446000DCA1B /* CoreData.framework in Frameworks */,
-				242C225F1E51719200FF6E0E /* RealmSwift.framework in Frameworks */,
 				247C76A01E1CB2460099473D /* HealthKit.framework in Frameworks */,
+				A228AAD5BAB6A5535D85442F /* Pods_HealthBank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				996CAE79CB0125DBC8368EC9 /* Pods_HealthBankTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D82FC9035898B8A9650B03 /* Pods_HealthBankUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +183,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				247C769E1E1CB1C60099473D /* HealthKit.framework in Frameworks */,
+				9243F707F256BCEB4DC7F847 /* Pods_HealthBank_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7B8AFFE6470779814D795E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFEF8541D99083E6EC6DEB12 /* Pods_HealthBank_WatchKit_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +210,7 @@
 				247C76771E1CB16D0099473D /* HealthBank WatchKit Extension */,
 				247C763D1E1CB16C0099473D /* Products */,
 				247C76981E1CB1B80099473D /* Frameworks */,
+				4A861EAE619A42221AFF449A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,8 +303,30 @@
 				2419012C1E221446000DCA1B /* CoreData.framework */,
 				247C769F1E1CB2460099473D /* HealthKit.framework */,
 				247C769D1E1CB1C60099473D /* HealthKit.framework */,
+				0B188DEEAB98D64A4E3DD353 /* Pods_HealthBank.framework */,
+				C2AD58008196EBFAD635FA81 /* Pods_HealthBank_WatchKit_App.framework */,
+				BAD2BA4570A010B9AD03C9B2 /* Pods_HealthBank_WatchKit_Extension.framework */,
+				E3B3C86CB7748F358ADC5443 /* Pods_HealthBankTests.framework */,
+				D4AE1229A0CF483CD0EB827F /* Pods_HealthBankUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A861EAE619A42221AFF449A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D4C0AE01554D9B6EB662002 /* Pods-HealthBank.debug.xcconfig */,
+				24FD7CC3B4676ECC5C00080C /* Pods-HealthBank.release.xcconfig */,
+				60FDD7EB3A62DC306BDBCBEB /* Pods-HealthBank WatchKit App.debug.xcconfig */,
+				654BE1BB254D54CA6C3C0B57 /* Pods-HealthBank WatchKit App.release.xcconfig */,
+				A1ED27D1DB817367350C49CA /* Pods-HealthBank WatchKit Extension.debug.xcconfig */,
+				D223AEC39CF998EA86DE4175 /* Pods-HealthBank WatchKit Extension.release.xcconfig */,
+				D821ABA731D3DC0EBD2C334F /* Pods-HealthBankTests.debug.xcconfig */,
+				0E09F7941989F8509D217C96 /* Pods-HealthBankTests.release.xcconfig */,
+				926FE8C28835B78829851E5B /* Pods-HealthBankUITests.debug.xcconfig */,
+				6B48F28B83D56C1F171B33C0 /* Pods-HealthBankUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,11 +336,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247C768F1E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank" */;
 			buildPhases = (
+				5F16756C386B308CC0A7C4E8 /* [CP] Check Pods Manifest.lock */,
 				247C76381E1CB16C0099473D /* Sources */,
 				247C76391E1CB16C0099473D /* Frameworks */,
 				247C763A1E1CB16C0099473D /* Resources */,
 				247C768E1E1CB16D0099473D /* Embed Watch Content */,
-				242C22611E51719200FF6E0E /* Embed Frameworks */,
+				AFB5188F8D6C2B4030C66FA7 /* [CP] Embed Pods Frameworks */,
+				036AAD5F610DEA4FECD43CB3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,9 +358,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247C76921E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBankTests" */;
 			buildPhases = (
+				1DCBDFA669106358EF04A82B /* [CP] Check Pods Manifest.lock */,
 				247C764C1E1CB16C0099473D /* Sources */,
 				247C764D1E1CB16C0099473D /* Frameworks */,
 				247C764E1E1CB16C0099473D /* Resources */,
+				F33C0F1D855FB634B194DC35 /* [CP] Embed Pods Frameworks */,
+				91D14352619FF09526EE1B16 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,9 +379,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247C76951E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBankUITests" */;
 			buildPhases = (
+				8C0C19EDF1E29F89822796F6 /* [CP] Check Pods Manifest.lock */,
 				247C76571E1CB16C0099473D /* Sources */,
 				247C76581E1CB16C0099473D /* Frameworks */,
 				247C76591E1CB16C0099473D /* Resources */,
+				42AED9CCB07D01E917A94CE4 /* [CP] Embed Pods Frameworks */,
+				A2C8449928CDFCC3722F40D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -355,8 +400,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247C768B1E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank WatchKit App" */;
 			buildPhases = (
+				B3ACCF505F047DA553FA89C6 /* [CP] Check Pods Manifest.lock */,
 				247C76621E1CB16D0099473D /* Resources */,
 				247C768A1E1CB16D0099473D /* Embed App Extensions */,
+				F7B8AFFE6470779814D795E3 /* Frameworks */,
+				C48827560284FB2BC7C529BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -372,9 +420,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247C76871E1CB16D0099473D /* Build configuration list for PBXNativeTarget "HealthBank WatchKit Extension" */;
 			buildPhases = (
+				4C5FF43C304003A48411795C /* [CP] Check Pods Manifest.lock */,
 				247C766F1E1CB16D0099473D /* Sources */,
 				247C76701E1CB16D0099473D /* Frameworks */,
 				247C76711E1CB16D0099473D /* Resources */,
+				F5DE1F171FBB1E75FEF69896 /* [CP] Embed Pods Frameworks */,
+				F8BE7E04372B2E08EA4ACA77 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -398,6 +449,7 @@
 					247C763B1E1CB16C0099473D = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 335LQ9PW5C;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -408,12 +460,14 @@
 					247C764F1E1CB16C0099473D = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 335LQ9PW5C;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 247C763B1E1CB16C0099473D;
 					};
 					247C765A1E1CB16C0099473D = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 335LQ9PW5C;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 247C763B1E1CB16C0099473D;
 					};
@@ -425,6 +479,7 @@
 					247C76721E1CB16D0099473D = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 335LQ9PW5C;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit.watchos = {
@@ -499,6 +554,219 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		036AAD5F610DEA4FECD43CB3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBank/Pods-HealthBank-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DCBDFA669106358EF04A82B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		42AED9CCB07D01E917A94CE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBankUITests/Pods-HealthBankUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C5FF43C304003A48411795C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5F16756C386B308CC0A7C4E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C0C19EDF1E29F89822796F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91D14352619FF09526EE1B16 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBankTests/Pods-HealthBankTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2C8449928CDFCC3722F40D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBankUITests/Pods-HealthBankUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFB5188F8D6C2B4030C66FA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBank/Pods-HealthBank-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3ACCF505F047DA553FA89C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C48827560284FB2BC7C529BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBank WatchKit App/Pods-HealthBank WatchKit App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F33C0F1D855FB634B194DC35 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBankTests/Pods-HealthBankTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5DE1F171FBB1E75FEF69896 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBank WatchKit Extension/Pods-HealthBank WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8BE7E04372B2E08EA4ACA77 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HealthBank WatchKit Extension/Pods-HealthBank WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		247C76381E1CB16C0099473D /* Sources */ = {
@@ -691,6 +959,7 @@
 		};
 		247C76881E1CB16D0099473D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1ED27D1DB817367350C49CA /* Pods-HealthBank WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HealthBank WatchKit Extension/HealthBank WatchKit Extension.entitlements";
@@ -701,7 +970,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
@@ -709,6 +979,7 @@
 		};
 		247C76891E1CB16D0099473D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D223AEC39CF998EA86DE4175 /* Pods-HealthBank WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HealthBank WatchKit Extension/HealthBank WatchKit Extension.entitlements";
@@ -719,7 +990,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
@@ -727,6 +999,7 @@
 		};
 		247C768C1E1CB16D0099473D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60FDD7EB3A62DC306BDBCBEB /* Pods-HealthBank WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -745,6 +1018,7 @@
 		};
 		247C768D1E1CB16D0099473D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 654BE1BB254D54CA6C3C0B57 /* Pods-HealthBank WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -763,6 +1037,7 @@
 		};
 		247C76901E1CB16D0099473D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D4C0AE01554D9B6EB662002 /* Pods-HealthBank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthBank/HealthBank.entitlements;
@@ -775,12 +1050,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		247C76911E1CB16D0099473D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24FD7CC3B4676ECC5C00080C /* Pods-HealthBank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthBank/HealthBank.entitlements;
@@ -793,12 +1070,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		247C76931E1CB16D0099473D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D821ABA731D3DC0EBD2C334F /* Pods-HealthBankTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -807,13 +1086,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthBank.app/HealthBank";
 			};
 			name = Debug;
 		};
 		247C76941E1CB16D0099473D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E09F7941989F8509D217C96 /* Pods-HealthBankTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -822,13 +1103,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthBank.app/HealthBank";
 			};
 			name = Release;
 		};
 		247C76961E1CB16D0099473D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 926FE8C28835B78829851E5B /* Pods-HealthBankUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 335LQ9PW5C;
@@ -836,13 +1119,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = HealthBank;
 			};
 			name = Debug;
 		};
 		247C76971E1CB16D0099473D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B48F28B83D56C1F171B33C0 /* Pods-HealthBankUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 335LQ9PW5C;
@@ -850,7 +1135,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tropopause.HealthBankUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = HealthBank;
 			};
 			name = Release;
