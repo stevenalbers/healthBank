@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>Write HealthKit Steps</string>
+	<string>Write HealthKit Gold</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>Read HealthKit Steps</string>
 	<key>CFBundleExecutable</key>

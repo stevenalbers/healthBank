@@ -10,7 +10,7 @@ import Foundation
 
 class ResourceManager
 {
-    var steps: Int = 0
+    var gold: Int = 0
     var wood: Int = 0
     static let sharedInstance = ResourceManager()
 }

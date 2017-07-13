@@ -22,14 +22,14 @@ class BuildingViewController: UIViewController {
 
     @IBAction func PurchaseBuilding(_ sender: Any) {
         
-        let currentSteps = bankManager.GetStepBankValue()
+        let currentGold = bankManager.GetStepBankValue()
         let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
         let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         print("Building cost: \(buildingCost)")
         
-        if(Double(currentSteps) - buildingCost >= 0)
+        if(Double(currentGold) - buildingCost >= 0)
         {
-            bankManager.AddStepsToBank(updatedSteps: Int(buildingCost) * -1)
+            bankManager.AddGoldToBank(updatedGold: Int(buildingCost) * -1)
             bankManager.AddBuilding()
         }
         else

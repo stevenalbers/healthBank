@@ -13,7 +13,7 @@ import RealmSwift
 class BankRealm: Object
 {
     @objc dynamic var id: Int = 0
-    @objc dynamic var steps: Int = 0
+    @objc dynamic var gold: Int = 0
     @objc dynamic var lastLogin: Date = Date()
     
     override class func primaryKey() -> String?
@@ -37,7 +37,7 @@ class StepBankManager
 {
     // TODO: Make try with do/catch handling
     let realm = try! Realm()
-    lazy var steps: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
+    lazy var gold: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
     lazy var date: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
     
     // Building data goes here
@@ -53,9 +53,9 @@ class StepBankManager
             
             try! realm.write() { // 2
                 
-                let defaultSteps = 0
+                let defaultGold = 0
                 let newBank = BankRealm()
-                newBank.steps = defaultSteps
+                newBank.gold = defaultGold
                 self.realm.add(newBank)
             }
         }
@@ -76,9 +76,9 @@ class StepBankManager
     func GetStepBankValue() -> Int
     {
         let bank = realm.objects(BankRealm.self)
-        let thing = bank.sum(ofProperty: "steps") as Int
+        let thing = bank.sum(ofProperty: "gold") as Int
         print("GetStepBankValue: \(thing)")
-        return bank.sum(ofProperty: "steps")
+        return bank.sum(ofProperty: "gold")
         
     }
     
@@ -90,7 +90,7 @@ class StepBankManager
         
     }
     
-    func AddStepsToBank(updatedSteps: Int)
+    func AddGoldToBank(updatedGold: Int)
     {
         let bank = realm.objects(BankRealm.self)
         let newID = (bank.last?.id)! + 1
@@ -98,7 +98,7 @@ class StepBankManager
         try! realm.write()
         {
             let bankUpdate = BankRealm()
-            bankUpdate.steps = updatedSteps
+            bankUpdate.gold = updatedGold
             bankUpdate.lastLogin = Date()
             bankUpdate.id = newID
             //self.realm.add(bankUpdate!, update: false)
