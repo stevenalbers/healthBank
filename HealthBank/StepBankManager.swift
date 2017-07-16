@@ -14,6 +14,10 @@ class BankRealm: Object
 {
     @objc dynamic var id: Int = 0
     @objc dynamic var gold: Int = 0
+    @objc dynamic var food: Int = 0
+    @objc dynamic var wood: Int = 0
+    @objc dynamic var stone: Int = 0
+    
     @objc dynamic var lastLogin: Date = Date()
     
     override class func primaryKey() -> String?
@@ -26,6 +30,10 @@ class BankRealm: Object
 class BuildingRealm: Object
 {
     @objc dynamic var id: Int = 0
+    @objc dynamic var house: Int = 0
+    @objc dynamic var farm: Int = 0
+    @objc dynamic var sawmill: Int = 0
+    @objc dynamic var quarry: Int = 0
     
     override class func primaryKey() -> String?
     {
