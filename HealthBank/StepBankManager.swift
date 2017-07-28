@@ -115,20 +115,33 @@ class StepBankManager
         }
     }
     
-    func AddBuilding()
+    func AddBuilding(buildingType : BUILDING)
     {
         let building = realm.objects(BuildingRealm.self)
         let newID = (building.last?.id)! + 1
+        
+        let currentBuilding: String = buildingType.rawValue
+        
         try! realm.write()
         {
             let buildingUpdate = BuildingRealm()
             buildingUpdate.id = newID
+            
+            // Decide building type here
+            switch(currentBuilding)
+            {
+            case "house":
+                buildingUpdate.house = 1
+            default:
+                print("Error: Incorrect building")
+            }
+            
             //self.realm.add(bankUpdate!, update: false)
             self.realm.create(BuildingRealm.self, value: buildingUpdate, update: false)
-            
         }
     }
     
+    // TODO: Have this return the value of a specified building, not just any building in the database
     func GetBuildingValue() -> Double
     {
         let building = realm.objects(BuildingRealm.self)

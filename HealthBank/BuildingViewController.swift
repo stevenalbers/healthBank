@@ -10,6 +10,13 @@ import UIKit
 import HealthKit
 import RealmSwift
 
+enum BUILDING : String {
+    case house
+    case farm
+    case sawmill
+    case quarry
+}
+
 class BuildingViewController: UIViewController {
     let healthKitManager = HealthKitManager.sharedInstance
     let bankManager = StepBankManager()
@@ -19,23 +26,33 @@ class BuildingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    @IBAction func PurchaseBuilding(_ sender: Any) {
-        
+    
+    // Link all building purchase taps here, and add the appropriate building
+    @IBAction func PurchaseBuilding(sender: Any) {
+        guard let button = sender as? UIButton else {
+            return
+        }
         let currentGold = bankManager.GetStepBankValue()
         let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
         let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
-        print("Building cost: \(buildingCost)")
         
-        if(Double(currentGold) - buildingCost >= 0)
-        {
-            bankManager.AddGoldToBank(updatedGold: Int(buildingCost) * -1)
-            bankManager.AddBuilding()
+        // Refer to which building was purchased here
+        switch button.tag {
+        case 1: // House
+            print("Building cost: \(buildingCost)")
+            if(Double(currentGold) - buildingCost >= 0)
+            {
+                bankManager.AddGoldToBank(updatedGold: Int(buildingCost) * -1)
+                bankManager.AddBuilding(buildingType: BUILDING.house)
+            }
+            else
+            {
+                print("Can't afford")
+            }        default: // Failure
+            print("Unknown building")
+            return
         }
-        else
-        {
-            print("Can't afford")
-        }
+        
         
     }
 }

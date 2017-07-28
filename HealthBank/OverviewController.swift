@@ -17,8 +17,7 @@ class OverviewController: UIViewController {
     let resourceManager = ResourceManager.sharedInstance
     let bankManager = StepBankManager()
     var stepCount: Int = 0  // TODO: Remove this if copying from healthkit is bad
-    var localGoldCount: Int = 0
-
+    
     var goldMultiplier: Double = 1.0
 
     @IBOutlet weak var GoldLabel: UILabel!
@@ -40,15 +39,6 @@ class OverviewController: UIViewController {
         GoldLabel.text = String(bankManager.GetStepBankValue())
 
     }
-
-
-    /*@IBAction func PurchaseBuilding(_ sender: Any) {
-        let multipliedGold = 50.0 * goldMultiplier
-
-        stepCount = stepCount + Int(multipliedGold)
-
-        bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
-    }*/
     
     func AddQueriedGoldToBank(goldToAdd: Int)
     {
@@ -94,7 +84,6 @@ class OverviewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
         let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         
