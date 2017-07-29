@@ -45,16 +45,19 @@ class OverviewController: UIViewController {
         // TODO: Unify these variables so they're only computed once
         let buildingValue = bankManager.GetBuildingValue()
         let multipliedGold = Double(goldToAdd) * (1 + (buildingValue * 0.1))
-        let currentBuildingMultiplier = buildingValue * 0.1
-        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
+        
+        // Removed alongside label removal
+//        let currentBuildingMultiplier = buildingValue * 0.1
+//        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         print("Gold Added: \(multipliedGold)")
 
         bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
         GoldLabel.text = String(resourceManager.gold)
-        DialogBox.text = "Gold Walked: \(goldToAdd) | Gold Added: \(multipliedGold)"
-        PurchasesMadeText.text = "Buildings Owned: \(buildingValue) | Next Building Cost: \(buildingCost)"
-        CurrentMultiplierText.text = "Current multiplier: \(1 + (buildingValue * 0.1))"
-
+        // Labels removed. This data should be re-displayed in an appropriate view
+//        DialogBox.text = "Gold Walked: \(goldToAdd) | Gold Added: \(multipliedGold)"
+//        PurchasesMadeText.text = "Buildings Owned: \(buildingValue) | Next Building Cost: \(buildingCost)"
+//        CurrentMultiplierText.text = "Current multiplier: \(1 + (buildingValue * 0.1))"
+        
     }
     
     override func viewDidLoad() {
@@ -84,12 +87,15 @@ class OverviewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
-        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
+        // Removed alongside label removal
+//        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
+//        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         
         GoldLabel.text = String(bankManager.GetStepBankValue())
-        PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
-        CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
+        
+        // Labels removed. This data should be re-displayed in an appropriate view
+//        PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
+//        CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
     }
     
     // TODO: Move/rename this
