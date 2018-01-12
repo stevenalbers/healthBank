@@ -21,10 +21,13 @@ class BuildingViewController: UIViewController {
     let healthKitManager = HealthKitManager.sharedInstance
     let bankManager = StepBankManager()
     
+    @IBOutlet weak var GoldLabel: UILabel!
     var overviewController = OverviewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GoldLabel.text = String(bankManager.GetStepBankValue())
     }
     
     // Link all building purchase taps here, and add the appropriate building
@@ -44,6 +47,7 @@ class BuildingViewController: UIViewController {
             {
                 bankManager.AddGoldToBank(updatedGold: Int(buildingCost) * -1)
                 bankManager.AddBuilding(buildingType: BUILDING.house)
+                GoldLabel.text = String(bankManager.GetStepBankValue())
             }
             else
             {
