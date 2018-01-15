@@ -11,6 +11,10 @@ import Foundation
 class ResourceManager
 {
     var gold: Int = 0
+    var food: Int = 0
     var wood: Int = 0
+    var stone: Int = 0
+    var population: Int = 0
+
     static let sharedInstance = ResourceManager()
 }

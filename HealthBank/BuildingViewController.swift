@@ -41,13 +41,14 @@ class BuildingViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        let currentGold = bankManager.GetStepBankValue() + 10000
-        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
-        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
+        let currentGold = bankManager.GetStepBankValue()
+        //let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
         
         // Refer to which building was purchased here
         switch button.tag {
         case 1: // House
+            let buildingCost = 7500.0
+
             print("Building cost: \(buildingCost)")
             if(Double(currentGold) - buildingCost >= 0)
             {

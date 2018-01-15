@@ -19,17 +19,25 @@ class OverviewController: UIViewController {
     var stepCount: Int = 0  // TODO: Remove this if copying from healthkit is bad
     
     var goldMultiplier: Double = 1.0
-
+    
     @IBOutlet weak var GoldLabel: UILabel!
     @IBOutlet weak var DialogBox: UILabel!
     @IBOutlet weak var PurchasesMadeText: UILabel!
-    @IBOutlet weak var CurrentMultiplierText: UILabel!
+    @IBOutlet weak var CurrentMultiplier: UILabel!
+    
+    @IBOutlet weak var StepsLabel: UILabel!
+    // Resources
+    @IBOutlet weak var GoldAmount: UILabel!
+    
 
+    // TODO: update all resources here
     @IBAction func UpdateGold(_ sender: Any) {
         
         resourceManager.gold = queryGoldSum(previousDate: bankManager.GetLastLogin())
         
         // This is terrible; use a callback instead
+        // This sleep gives healthKit time to populate itself, but really this function should wait until
+        // it receives some form of message from HK
         sleep(1)
         
         print("Gold: \(resourceManager.gold)")
@@ -37,26 +45,30 @@ class OverviewController: UIViewController {
         
         AddQueriedGoldToBank(goldToAdd: resourceManager.gold)
         GoldLabel.text = String(bankManager.GetStepBankValue())
-
     }
     
+    // TODO:
     func AddQueriedGoldToBank(goldToAdd: Int)
     {
         // TODO: Unify these variables so they're only computed once
-        let buildingValue = bankManager.GetBuildingValue()
-        let multipliedGold = Double(goldToAdd) * (1 + (buildingValue * 0.1))
+        let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
+        let multipliedGold = Double(goldToAdd) * (1 + (populationGoldMultiplier))
         
         // Removed alongside label removal
-//        let currentBuildingMultiplier = buildingValue * 0.1
+//        let currentBuildingMultiplier = populationGoldMultiplier * 0.1
 //        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         print("Gold Added: \(multipliedGold)")
 
         bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
         GoldLabel.text = String(resourceManager.gold)
+        GoldAmount.text = String(multipliedGold)
+        StepsLabel.text = String(resourceManager.gold)
+        CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
+        
         // Labels removed. This data should be re-displayed in an appropriate view
 //        DialogBox.text = "Gold Walked: \(goldToAdd) | Gold Added: \(multipliedGold)"
-//        PurchasesMadeText.text = "Buildings Owned: \(buildingValue) | Next Building Cost: \(buildingCost)"
-//        CurrentMultiplierText.text = "Current multiplier: \(1 + (buildingValue * 0.1))"
+//        PurchasesMadeText.text = "Buildings Owned: \(populationGoldMultiplier) | Next Building Cost: \(buildingCost)"
+//        CurrentMultiplierText.text = "Current multiplier: \(1 + (populationGoldMultiplier * 0.1))"
         
     }
     
@@ -66,9 +78,9 @@ class OverviewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         bankManager.InitializeRealmData()
         
-        check()
+        GatherStepData()
         resourceManager.gold = queryGoldSum(previousDate: bankManager.GetLastLogin())
-        
+
         // This is terrible; use a callback instead
         sleep(1)
         
@@ -98,8 +110,7 @@ class OverviewController: UIViewController {
 //        CurrentMultiplierText.text = "Current multiplier: \(1 + (bankManager.GetBuildingValue() * 0.1))"
     }
     
-    // TODO: Move/rename this
-    func check()
+    func GatherStepData()
     {
         if HKHealthStore.isHealthDataAvailable()
         {
