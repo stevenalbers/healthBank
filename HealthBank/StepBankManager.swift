@@ -149,4 +149,10 @@ class StepBankManager
         
         return Double(buildingTotal)
     }
+    
+    func GetNumberOfBuildings(buildingType : BUILDING) -> Int
+    {
+        let building = realm.objects(BuildingRealm.self)
+        return building.sum(ofProperty: buildingType.rawValue)
+    }
 }
