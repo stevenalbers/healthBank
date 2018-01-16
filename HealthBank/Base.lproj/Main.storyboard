@@ -541,7 +541,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q3i-8J-TnT" userLabel="Steps">
-                                <rect key="frame" x="131" y="566" width="42" height="21"/>
+                                <rect key="frame" x="120" y="566" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -569,6 +569,7 @@
                         <outlet property="CurrentMultiplier" destination="Rrq-G7-Tvn" id="wNV-lN-gYO"/>
                         <outlet property="GoldAmount" destination="3Qe-Ok-QaL" id="sde-Fh-e5n"/>
                         <outlet property="GoldLabel" destination="ycO-ZB-r9h" id="3Ce-mX-IhL"/>
+                        <outlet property="PopulationLabel" destination="reO-Ps-DKI" id="hhf-mA-sqo"/>
                         <outlet property="StepsLabel" destination="Q3i-8J-TnT" id="SLP-L3-Q7V"/>
                     </connections>
                 </viewController>

@@ -20,7 +20,11 @@ class OverviewController: UIViewController {
     
     var goldMultiplier: Double = 1.0
     
+    // Resource bar
     @IBOutlet weak var GoldLabel: UILabel!
+    @IBOutlet weak var PopulationLabel: UILabel!
+    
+    
     @IBOutlet weak var DialogBox: UILabel!
     @IBOutlet weak var PurchasesMadeText: UILabel!
     @IBOutlet weak var CurrentMultiplier: UILabel!
@@ -52,6 +56,8 @@ class OverviewController: UIViewController {
     {
         // TODO: Unify these variables so they're only computed once
         let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
+        let populationCount = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 2
+
         let multipliedGold = Double(goldToAdd) * (1 + (populationGoldMultiplier))
         
         // Removed alongside label removal
@@ -61,6 +67,7 @@ class OverviewController: UIViewController {
 
         bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
         GoldLabel.text = String(resourceManager.gold)
+        PopulationLabel.text = String(populationCount)
         GoldAmount.text = String(multipliedGold)
         StepsLabel.text = String(resourceManager.gold)
         CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
