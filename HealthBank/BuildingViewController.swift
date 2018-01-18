@@ -20,21 +20,31 @@ enum BUILDING : String {
 
 class BuildingViewController: UIViewController {
     let healthKitManager = HealthKitManager.sharedInstance
+    let resourceManager = ResourceManager.sharedInstance
+
     let bankManager = StepBankManager()
     
     @IBOutlet weak var HouseCost: UILabel!
     @IBOutlet weak var HousesOwned: UILabel!
     
-    
+    // Resource bar
     @IBOutlet weak var GoldLabel: UILabel!
+    @IBOutlet weak var PopulationLabel: UILabel!
+    
     var overviewController = OverviewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GoldLabel.text = String(bankManager.GetStepBankValue())
+        GoldLabel.text = String(resourceManager.gold)
         HousesOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UpdateResourceBar()
+    }
+
     
     // Link all building purchase taps here, and add the appropriate building
     @IBAction func PurchaseBuilding(sender: Any) {
@@ -54,7 +64,7 @@ class BuildingViewController: UIViewController {
             {
                 bankManager.AddGoldToBank(updatedGold: Int(buildingCost) * -1)
                 bankManager.AddBuilding(buildingType: BUILDING.house)
-                GoldLabel.text = String(bankManager.GetStepBankValue())
+                GoldLabel.text = String(resourceManager.gold)
                 HousesOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house))
             }
             else
@@ -80,5 +90,12 @@ class BuildingViewController: UIViewController {
         }
         
         
+    }
+    
+    func UpdateResourceBar()
+    {
+        // Resource bar
+        GoldLabel.text = String(resourceManager.gold)
+        PopulationLabel.text = String(resourceManager.population)
     }
 }

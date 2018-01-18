@@ -48,6 +48,8 @@ class StepBankManager
     lazy var gold: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
     lazy var date: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
     
+    let resourceManager = ResourceManager.sharedInstance
+    
     // Building data goes here
     lazy var buildings: Results<BuildingRealm> = { self.realm.objects(BuildingRealm.self) }()
     
@@ -87,7 +89,6 @@ class StepBankManager
         let thing = bank.sum(ofProperty: "gold") as Int
         print("GetStepBankValue: \(thing)")
         return bank.sum(ofProperty: "gold")
-        
     }
     
     func GetLastLogin() -> Date
@@ -111,8 +112,10 @@ class StepBankManager
             bankUpdate.id = newID
             //self.realm.add(bankUpdate!, update: false)
             self.realm.create(BankRealm.self, value: bankUpdate, update: false)
-            
         }
+        resourceManager.gold = GetStepBankValue()
+        print("RM Gold: \(resourceManager.gold)")
+
     }
     
     func AddBuilding(buildingType : BUILDING)
