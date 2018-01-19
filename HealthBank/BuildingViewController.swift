@@ -24,7 +24,11 @@ class BuildingViewController: UIViewController {
 
     let bankManager = StepBankManager()
     
+    // Building costs
+    var houseCost: Int!
+    
     @IBOutlet weak var HouseCost: UILabel!
+    @IBOutlet weak var HousePrice: UILabel!
     @IBOutlet weak var HousesOwned: UILabel!
     
     // Resource bar
@@ -36,13 +40,12 @@ class BuildingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GoldLabel.text = String(resourceManager.gold)
-        HousesOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UpdateResourceBar()
+        
+        UpdateAllLabels()
     }
 
     
@@ -57,15 +60,17 @@ class BuildingViewController: UIViewController {
         // Refer to which building was purchased here
         switch button.tag {
         case 1: // House
-            let buildingCost = 7500.0
+            let buildingCost = 7500.0 + Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750)
 
             print("Building cost: \(buildingCost)")
             if(Double(currentGold) - buildingCost >= 0)
             {
                 bankManager.AddGoldToBank(updatedGold: Int(buildingCost) * -1)
                 bankManager.AddBuilding(buildingType: BUILDING.house)
-                GoldLabel.text = String(resourceManager.gold)
-                HousesOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house))
+                
+                resourceManager.population = bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 2
+
+                UpdateAllLabels()
             }
             else
             {
@@ -92,10 +97,27 @@ class BuildingViewController: UIViewController {
         
     }
     
+    func UpdateAllLabels()
+    {
+        UpdateResourceBar()
+        UpdateBuildingLabels()
+    }
+    
     func UpdateResourceBar()
     {
         // Resource bar
         GoldLabel.text = String(resourceManager.gold)
         PopulationLabel.text = String(resourceManager.population)
+    }
+    
+    func UpdateBuildingLabels()
+    {
+        let houseCost = Int(7500.0 + Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750))
+        
+        GoldLabel.text = String(resourceManager.gold)
+
+        HousePrice.text = String("\(houseCost)G")
+        HousesOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house))
+
     }
 }

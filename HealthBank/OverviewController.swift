@@ -37,7 +37,9 @@ class OverviewController: UIViewController {
 
     // TODO: update all resources here
     @IBAction func UpdateGold(_ sender: Any) {
-                
+        
+        QueryGoldSum(previousDate: bankManager.GetLastLogin())
+
         // This is terrible; use a callback instead
         // This sleep gives healthKit time to populate itself, but really this function should wait until
         // it receives some form of message from HK
@@ -47,7 +49,7 @@ class OverviewController: UIViewController {
         // Somehow this dumps all realm data?
         //print(bankManager.date)
 
-        AddQueriedGoldToBank(goldToAdd: queryGoldSum(previousDate: bankManager.GetLastLogin()))
+        AddQueriedGoldToBank(goldToAdd: stepCount)
         print("All Gold: \(bankManager.GetStepBankValue())")
 
         GoldLabel.text = String(resourceManager.gold)
@@ -60,7 +62,7 @@ class OverviewController: UIViewController {
         // TODO: Unify these variables so they're only computed once
         let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
 
-        let multipliedGold = Double(goldToAdd) * (1 + (populationGoldMultiplier))
+        let multipliedGold = Int(Double(goldToAdd) * (1 + (populationGoldMultiplier)))
         
         // Removed alongside label removal
 //        let currentBuildingMultiplier = populationGoldMultiplier * 0.1
@@ -70,7 +72,7 @@ class OverviewController: UIViewController {
         bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
 
         // Update necessary labels here
-        GoldGridAmount.text = String(multipliedGold)
+        GoldGridAmount.text = String(Int(multipliedGold))
         StepsLabel.text = String(goldToAdd)
         CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
         
@@ -88,17 +90,21 @@ class OverviewController: UIViewController {
         bankManager.InitializeRealmData()
         
         GatherStepData()
-
+        QueryGoldSum(previousDate: bankManager.GetLastLogin())
+        
         // This is terrible; use a callback instead
+        // This sleep gives healthKit time to populate itself, but really this function should wait until
+        // it receives some form of message from HK
         sleep(1)
         
+        print("RM Gold: \(resourceManager.gold)")
         // Somehow this dumps all realm data?
         //print(bankManager.date)
         
-        AddQueriedGoldToBank(goldToAdd: queryGoldSum(previousDate: bankManager.GetLastLogin()))
+        AddQueriedGoldToBank(goldToAdd: stepCount)
+        print("All Gold: \(bankManager.GetStepBankValue())")
+        
         resourceManager.population = bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 2
-
-        GoldLabel.text = String(resourceManager.gold)
 
     }
 
@@ -150,22 +156,21 @@ class OverviewController: UIViewController {
     // This query:
     // Get number of gold since last time
     // multiply by the update factor
-    func queryGoldSum(previousDate: Date) -> Int {
+    func QueryGoldSum(previousDate: Date) {
         print("Last queried date: \(previousDate)\nCurrent Date: \(Date())")
-        var numberOfGold: Int = 0
         let sumOption = HKStatisticsOptions.cumulativeSum
         let predicate = HKQuery.predicateForSamples(withStart: previousDate, end: Date(), options: .strictStartDate)
         let statisticsSumQuery = HKStatisticsQuery(quantityType: healthKitManager.stepCount!, quantitySamplePredicate: predicate, options: sumOption) { [unowned self] (query, result, error) in
             if let newGoldQuantity = result?.sumQuantity() {
-                numberOfGold = Int(newGoldQuantity.doubleValue(for: self.healthKitManager.goldUnit))
-                print ("Query gold: \(numberOfGold)")
+                self.stepCount = Int(newGoldQuantity.doubleValue(for: self.healthKitManager.goldUnit))
+                print ("Query gold: \(self.stepCount)")
                 //self.resourceManager.gold = numberOfGold
             }
         }
 
         healthKitManager.healthStore?.execute(statisticsSumQuery)
         self.GoldLabel.text = "0"
-        return numberOfGold
+        //return 1
     }
 
     func UpdateResourceBar()
