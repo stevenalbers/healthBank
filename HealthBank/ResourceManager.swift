@@ -15,6 +15,8 @@ class ResourceManager
     var wood: Int = 0
     var stone: Int = 0
     var population: Int = 0
+    
+    var stepsQueried: Int = 0
 
     static let sharedInstance = ResourceManager()
 }

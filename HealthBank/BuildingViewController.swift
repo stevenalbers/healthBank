@@ -61,14 +61,16 @@ class BuildingViewController: UIViewController {
         //let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
         
         // Refer to which building was purchased here
+        // TODO: Even consider finding a way to make this more succinct. There should be a way to generalize
+        // building type + cost + resource availability
         switch button.tag {
         case 1: // House
-            let buildingCost = 7500.0 + Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750)
+            let goldCost = 7500.0 + Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750)
 
-            print("Building cost: \(buildingCost)")
-            if(Double(currentGold) - buildingCost >= 0)
+            print("Building cost: \(goldCost)")
+            if(Double(currentGold) - goldCost >= 0)
             {
-                bankManager.AddGoldToBank(updatedGold: Int(buildingCost) * -1)
+                bankManager.AddGoldToBank(updatedGold: Int(goldCost) * -1)
                 bankManager.AddBuilding(buildingType: BUILDING.house)
                 
                 resourceManager.population = bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 2
@@ -77,11 +79,28 @@ class BuildingViewController: UIViewController {
             }
             else
             {
+                // TODO: add in how short you are resource-wise
                 print("Can't afford")
             }
             break
-        case 2:
-            print("Farm not implemented.")
+        case 2: // Farm
+            let goldCost = 4500 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm) * 500)
+            let woodCost = 150 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm) * 50)
+            
+            if( resourceManager.gold >= goldCost && resourceManager.wood >= woodCost)
+            {
+                bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: -goldCost)
+                bankManager.AddResourceToBank(resource: RESOURCE.wood, toAdd: -woodCost)
+                bankManager.AddBuilding(buildingType: BUILDING.farm)
+                
+                
+                
+                UpdateAllLabels()
+            }
+            else
+            {
+                print("Can't afford")
+            }
             break
         case 3:
             print("Sawmill not implemented.")

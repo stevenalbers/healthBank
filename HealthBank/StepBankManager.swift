@@ -26,6 +26,14 @@ class BankRealm: Object
     }
 }
 
+enum RESOURCE : String {
+    case gold = "gold"
+    case food = "food"
+    case wood = "wood"
+    case stone = "stone"
+    case population = "population"
+}
+
 // For now, because each building is worth the same amount it's easier to just take the sum of IDs logged in the database
 class BuildingRealm: Object
 {
@@ -61,7 +69,7 @@ class StepBankManager
             
             try! realm.write() { // 2
                 
-                let defaultGold = 2500
+                let defaultGold = 250000
                 let defaultFood = 500
                 let defaultWood = 150
 
@@ -118,6 +126,68 @@ class StepBankManager
         
     }
     
+    func AddResourceToBank(resource: RESOURCE, toAdd: Int)
+    {
+        let bank = realm.objects(BankRealm.self)
+        let newID = (bank.last?.id)! + 1
+        
+        try! realm.write()
+        {
+            let bankUpdate = BankRealm()
+            
+            // TODO: Convert this switch into a single use case. e.g. use the resource enum directly as the class variable
+            switch(resource)
+            {
+            case RESOURCE.gold:
+                bankUpdate.gold = toAdd
+                bankUpdate.lastLogin = Date()
+                bankUpdate.id = newID
+                //self.realm.add(bankUpdate!, update: false)
+                self.realm.create(BankRealm.self, value: bankUpdate, update: false)
+
+                break
+            case RESOURCE.food:
+                bankUpdate.food = toAdd
+                bankUpdate.lastLogin = Date()
+                bankUpdate.id = newID
+                //self.realm.add(bankUpdate!, update: false)
+                self.realm.create(BankRealm.self, value: bankUpdate, update: false)
+
+                break
+            case RESOURCE.wood:
+                bankUpdate.wood = toAdd
+                bankUpdate.lastLogin = Date()
+                bankUpdate.id = newID
+                //self.realm.add(bankUpdate!, update: false)
+                self.realm.create(BankRealm.self, value: bankUpdate, update: false)
+
+                break
+            case RESOURCE.stone:
+                bankUpdate.stone = toAdd
+                bankUpdate.lastLogin = Date()
+                bankUpdate.id = newID
+                //self.realm.add(bankUpdate!, update: false)
+                self.realm.create(BankRealm.self, value: bankUpdate, update: false)
+
+                break
+            case RESOURCE.population:
+                bankUpdate.gold = toAdd
+                bankUpdate.lastLogin = Date()
+                bankUpdate.id = newID
+                //self.realm.add(bankUpdate!, update: false)
+                self.realm.create(BankRealm.self, value: bankUpdate, update: false)
+
+                break
+            default:
+                // Error
+                print("Bad Resource.")
+                break
+            }
+        }
+        resourceManager.gold = GetStepBankValue()
+        print("RM Gold: \(resourceManager.gold)")
+    }
+    
     func AddGoldToBank(updatedGold: Int)
     {
         let bank = realm.objects(BankRealm.self)
@@ -133,7 +203,7 @@ class StepBankManager
             self.realm.create(BankRealm.self, value: bankUpdate, update: false)
         }
         resourceManager.gold = GetStepBankValue()
-        print("RM Gold: \(resourceManager.gold)")
+        print("RM! Gold: \(resourceManager.gold)")
 
     }
     
@@ -154,6 +224,10 @@ class StepBankManager
             {
             case "house":
                 buildingUpdate.house = 1
+                break
+            case "farm":
+                buildingUpdate.farm = 1
+                break
             default:
                 print("Error: Incorrect building")
             }
