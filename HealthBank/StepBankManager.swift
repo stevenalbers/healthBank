@@ -45,8 +45,6 @@ class StepBankManager
 {
     // TODO: Make try with do/catch handling
     let realm = try! Realm()
-    lazy var gold: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
-    lazy var date: Results<BankRealm> = { self.realm.objects(BankRealm.self) }()
     
     let resourceManager = ResourceManager.sharedInstance
     
@@ -58,14 +56,23 @@ class StepBankManager
         let bank = realm.objects(BankRealm.self)
         
         let buildings = realm.objects(BuildingRealm.self)
-        
+    
         if (bank.isEmpty == true) { // 1
             
             try! realm.write() { // 2
                 
-                let defaultGold = 0
+                let defaultGold = 2500
+                let defaultFood = 500
+                let defaultWood = 150
+
                 let newBank = BankRealm()
                 newBank.gold = defaultGold
+                newBank.food = defaultFood
+                newBank.wood = defaultWood
+                
+                resourceManager.gold = defaultGold
+                resourceManager.food = defaultFood
+                resourceManager.wood = defaultWood
                 self.realm.add(newBank)
             }
         }
@@ -89,6 +96,18 @@ class StepBankManager
         let thing = bank.sum(ofProperty: "gold") as Int
         print("GetStepBankValue: \(thing)")
         return bank.sum(ofProperty: "gold")
+    }
+    
+    func UpdateResources()
+    {
+        let bank = realm.objects(BankRealm.self)
+
+        // Gather sum of each resource here, populate resourceManager
+        resourceManager.gold = bank.sum(ofProperty: "gold") as Int
+        resourceManager.food = bank.sum(ofProperty: "food") as Int
+        resourceManager.wood = bank.sum(ofProperty: "wood") as Int
+        resourceManager.stone = bank.sum(ofProperty: "stone") as Int
+        resourceManager.population = 4 + (buildings.sum(ofProperty: BUILDING.house.rawValue) * 2)
     }
     
     func GetLastLogin() -> Date

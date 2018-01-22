@@ -22,6 +22,9 @@ class OverviewController: UIViewController {
     
     // Resource bar
     @IBOutlet weak var GoldLabel: UILabel!
+    @IBOutlet weak var FoodLabel: UILabel!
+    @IBOutlet weak var WoodLabel: UILabel!
+    @IBOutlet weak var StoneLabel: UILabel!
     @IBOutlet weak var PopulationLabel: UILabel!
     
     
@@ -33,6 +36,9 @@ class OverviewController: UIViewController {
     
     // Resource grid
     @IBOutlet weak var GoldGridAmount: UILabel!
+    @IBOutlet weak var FoodGridAmount: UILabel!
+    @IBOutlet weak var WoodGridAmount: UILabel!
+    @IBOutlet weak var StoneGridAmount: UILabel!
     
 
     // TODO: update all resources here
@@ -61,8 +67,7 @@ class OverviewController: UIViewController {
     {
         // TODO: Unify these variables so they're only computed once
         let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
-
-        let multipliedGold = Int(Double(goldToAdd) * (1 + (populationGoldMultiplier)))
+        let multipliedGold = Int(Double(goldToAdd) * (populationGoldMultiplier))
         
         // Removed alongside label removal
 //        let currentBuildingMultiplier = populationGoldMultiplier * 0.1
@@ -118,7 +123,7 @@ class OverviewController: UIViewController {
         // Removed alongside label removal
 //        let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
 //        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
-        
+        bankManager.UpdateResources()
         UpdateResourceBar()
         // Labels removed. This data should be re-displayed in an appropriate view
 //        PurchasesMadeText.text = "Buildings Owned: \(bankManager.GetBuildingValue()) | Next Building Cost: \(buildingCost)"
@@ -177,6 +182,9 @@ class OverviewController: UIViewController {
     {
         // Resource bar
         GoldLabel.text = String(resourceManager.gold)
+        FoodLabel.text = String(resourceManager.food)
+        WoodLabel.text = String(resourceManager.wood)
+        StoneLabel.text = String(resourceManager.stone)
         PopulationLabel.text = String(resourceManager.population)
     }
     

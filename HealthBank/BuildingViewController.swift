@@ -33,6 +33,9 @@ class BuildingViewController: UIViewController {
     
     // Resource bar
     @IBOutlet weak var GoldLabel: UILabel!
+    @IBOutlet weak var FoodLabel: UILabel!
+    @IBOutlet weak var WoodLabel: UILabel!
+    @IBOutlet weak var StoneLabel: UILabel!
     @IBOutlet weak var PopulationLabel: UILabel!
     
     var overviewController = OverviewController()
@@ -44,7 +47,7 @@ class BuildingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        bankManager.UpdateResources()
         UpdateAllLabels()
     }
 
@@ -107,6 +110,9 @@ class BuildingViewController: UIViewController {
     {
         // Resource bar
         GoldLabel.text = String(resourceManager.gold)
+        FoodLabel.text = String(resourceManager.food)
+        WoodLabel.text = String(resourceManager.wood)
+        StoneLabel.text = String(resourceManager.stone)
         PopulationLabel.text = String(resourceManager.population)
     }
     
