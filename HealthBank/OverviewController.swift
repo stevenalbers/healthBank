@@ -69,15 +69,20 @@ class OverviewController: UIViewController {
         let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
         let multipliedGold = Int(Double(goldToAdd) * (1 + (populationGoldMultiplier)))
         
+        let foodToAdd = Int(((Double(goldToAdd) / 25.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 0.5))))
+        
         // Removed alongside label removal
 //        let currentBuildingMultiplier = populationGoldMultiplier * 0.1
 //        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         print("Gold Added: \(multipliedGold)")
+        print("Food Added: \(foodToAdd)")
 
         bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
+        bankManager.AddResourceToBank(resource: RESOURCE.food, toAdd: foodToAdd)
 
         // Update necessary labels here
         GoldGridAmount.text = String(Int(multipliedGold))
+        FoodGridAmount.text = String(Int(foodToAdd))
         StepsLabel.text = String(goldToAdd)
         CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
         
@@ -180,6 +185,8 @@ class OverviewController: UIViewController {
 
     func UpdateResourceBar()
     {
+        bankManager.UpdateResources()
+        
         // Resource bar
         GoldLabel.text = String(resourceManager.gold)
         FoodLabel.text = String(resourceManager.food)

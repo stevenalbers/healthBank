@@ -340,9 +340,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Buildings" id="3RD-cT-u7A"/>
                     <connections>
+                        <outlet property="FarmPrice" destination="yVg-fz-BBB" id="jxe-ji-fim"/>
+                        <outlet property="FarmsOwned" destination="6LL-8l-pPF" id="L3Z-MK-PPI"/>
                         <outlet property="FoodLabel" destination="m94-To-Exu" id="V5R-Y5-ORt"/>
                         <outlet property="GoldLabel" destination="m5r-HU-uBl" id="Ld2-pL-vSP"/>
-                        <outlet property="HouseCost" destination="lV9-8e-NL1" id="g2G-Ib-zVi"/>
                         <outlet property="HousePrice" destination="lV9-8e-NL1" id="bhc-CC-ax3"/>
                         <outlet property="HousesOwned" destination="63L-6L-cDY" id="AGD-3R-ik9"/>
                         <outlet property="PopulationLabel" destination="qLa-tM-D1g" id="HVv-jE-vvg"/>

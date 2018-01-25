@@ -27,9 +27,10 @@ class BuildingViewController: UIViewController {
     // Building costs
     var houseCost: Int!
     
-    @IBOutlet weak var HouseCost: UILabel!
     @IBOutlet weak var HousePrice: UILabel!
     @IBOutlet weak var HousesOwned: UILabel!
+    @IBOutlet weak var FarmPrice: UILabel!
+    @IBOutlet weak var FarmsOwned: UILabel!
     
     // Resource bar
     @IBOutlet weak var GoldLabel: UILabel!
@@ -127,6 +128,8 @@ class BuildingViewController: UIViewController {
     
     func UpdateResourceBar()
     {
+        bankManager.UpdateResources()
+
         // Resource bar
         GoldLabel.text = String(resourceManager.gold)
         FoodLabel.text = String(resourceManager.food)
@@ -137,12 +140,20 @@ class BuildingViewController: UIViewController {
     
     func UpdateBuildingLabels()
     {
-        let houseCost = Int(7500.0 + Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750))
+        let houseGoldCost = Int(7500.0 + Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750))
+        
+        let farmGoldCost = 4500 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm) * 500)
+        let farmWoodCost = 150 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm) * 50)
+
         
         GoldLabel.text = String(resourceManager.gold)
 
-        HousePrice.text = String("\(houseCost)G")
+        HousePrice.text = String("\(houseGoldCost)G")
         HousesOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house))
+        
+        FarmPrice.text = String("\(farmGoldCost)G, \(farmWoodCost)W")
+        FarmsOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm))
+
 
     }
 }
