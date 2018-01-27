@@ -70,15 +70,27 @@ class OverviewController: UIViewController {
         let multipliedGold = Int(Double(goldToAdd) * (1 + (populationGoldMultiplier)))
         
         let foodToAdd = Int(((Double(goldToAdd) / 25.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 0.5))))
+
+        // Get the number of calendar days since last login. Because apparently people only eat at midnight
+        let calendar = NSCalendar.current
         
+        // Replace the hour (time) of both dates with 00:00
+        let date1 = calendar.startOfDay(for: bankManager.GetLastLogin())
+        let date2 = calendar.startOfDay(for: Date())
+        
+        let components = calendar.dateComponents([.day], from: date1, to: date2)
+
+        let foodToConsume = Int(components.day! * (resourceManager.population * 5))
+
         // Removed alongside label removal
 //        let currentBuildingMultiplier = populationGoldMultiplier * 0.1
 //        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         print("Gold Added: \(multipliedGold)")
         print("Food Added: \(foodToAdd)")
+        print("Food consumed: \(foodToConsume)")
 
         bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
-        bankManager.AddResourceToBank(resource: RESOURCE.food, toAdd: foodToAdd)
+        bankManager.AddResourceToBank(resource: RESOURCE.food, toAdd: foodToAdd - foodToConsume)
 
         // Update necessary labels here
         GoldGridAmount.text = String(Int(multipliedGold))

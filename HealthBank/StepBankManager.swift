@@ -69,7 +69,7 @@ class StepBankManager
             
             try! realm.write() { // 2
                 
-                let defaultGold = 250000
+                let defaultGold = 10000
                 let defaultFood = 500
                 let defaultWood = 150
 
