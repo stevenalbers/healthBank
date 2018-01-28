@@ -31,6 +31,12 @@ class BuildingViewController: UIViewController {
     @IBOutlet weak var HousesOwned: UILabel!
     @IBOutlet weak var FarmPrice: UILabel!
     @IBOutlet weak var FarmsOwned: UILabel!
+    @IBOutlet weak var SawmillPrice: UILabel!
+    @IBOutlet weak var SawmillsOwned: UILabel!
+    @IBOutlet weak var QuarryPrice: UILabel!
+    @IBOutlet weak var QuarriesOwned: UILabel!
+    @IBOutlet weak var MonumentPrice: UILabel!
+    @IBOutlet weak var MonumentsOwned: UILabel!
     
     // Resource bar
     @IBOutlet weak var GoldLabel: UILabel!
@@ -58,20 +64,19 @@ class BuildingViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-        let currentGold = bankManager.GetStepBankValue()
-        //let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
+         //let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
         
         // Refer to which building was purchased here
         // TODO: Even consider finding a way to make this more succinct. There should be a way to generalize
         // building type + cost + resource availability
         switch button.tag {
         case 1: // House
-            let goldCost = 7500.0 + Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750)
+            let goldCost = 7500 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750
 
             print("Building cost: \(goldCost)")
-            if(Double(currentGold) - goldCost >= 0)
+            if(resourceManager.gold - goldCost >= 0)
             {
-                bankManager.AddGoldToBank(updatedGold: Int(goldCost) * -1)
+                bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: Int(-goldCost))
                 bankManager.AddBuilding(buildingType: BUILDING.house)
                 
                 resourceManager.population = bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 2
@@ -94,8 +99,6 @@ class BuildingViewController: UIViewController {
                 bankManager.AddResourceToBank(resource: RESOURCE.wood, toAdd: -woodCost)
                 bankManager.AddBuilding(buildingType: BUILDING.farm)
                 
-                
-                
                 UpdateAllLabels()
             }
             else
@@ -104,13 +107,59 @@ class BuildingViewController: UIViewController {
             }
             break
         case 3:
-            print("Sawmill not implemented.")
+            let goldCost = 25000 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill) * 5000
+            
+            print("Building cost: \(goldCost)")
+            if(resourceManager.gold - goldCost >= 0)
+            {
+                bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: Int(-goldCost))
+                bankManager.AddBuilding(buildingType: BUILDING.sawmill)
+                
+                UpdateAllLabels()
+            }
+            else
+            {
+                // TODO: add in how short you are resource-wise
+                print("Can't afford")
+            }
             break
         case 4:
-            print("Quarry not implemented.")
+            let goldCost = 50000 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry) * 10000
+            let woodCost = 450 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry) * 125)
+            
+            print("Building cost: \(goldCost)")
+            if( resourceManager.gold >= goldCost && resourceManager.wood >= woodCost)
+            {
+                bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: -goldCost)
+                bankManager.AddResourceToBank(resource: RESOURCE.wood, toAdd: -woodCost)
+                bankManager.AddBuilding(buildingType: BUILDING.quarry)
+
+                UpdateAllLabels()
+            }
+            else
+            {
+                // TODO: add in how short you are resource-wise
+                print("Can't afford")
+            }
             break
         case 4:
-            print("Monument not implemented.")
+            let goldCost = 100000 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument) * 25000
+            let stoneCost = 500 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument) * 150)
+            
+            print("Building cost: \(goldCost)")
+            if( resourceManager.gold >= goldCost && resourceManager.stone >= stoneCost)
+            {
+                bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: -goldCost)
+                bankManager.AddResourceToBank(resource: RESOURCE.wood, toAdd: -stoneCost)
+                bankManager.AddBuilding(buildingType: BUILDING.monument)
+                
+                UpdateAllLabels()
+            }
+            else
+            {
+                // TODO: add in how short you are resource-wise
+                print("Can't afford")
+            }
             break
         default: // Failure
             print("Unknown building")
@@ -145,6 +194,14 @@ class BuildingViewController: UIViewController {
         let farmGoldCost = 4500 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm) * 500)
         let farmWoodCost = 150 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm) * 50)
 
+        let sawmillGoldCost = 25000 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill) * 5000
+        
+        let quarryGoldCost = 50000 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry) * 10000
+        let quarryWoodCost = 450 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry) * 125)
+
+        let monumentGoldCost = 100000 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument) * 25000
+        let monumentStoneCost = 500 + (bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument) * 150)
+
         
         GoldLabel.text = String(resourceManager.gold)
 
@@ -154,6 +211,14 @@ class BuildingViewController: UIViewController {
         FarmPrice.text = String("\(farmGoldCost)G, \(farmWoodCost)W")
         FarmsOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm))
 
+        SawmillPrice.text = String("\(sawmillGoldCost)G")
+        SawmillsOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill))
+
+        QuarryPrice.text = String("\(quarryGoldCost)G, \(quarryWoodCost)W")
+        QuarriesOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry))
+
+        MonumentPrice.text = String("\(monumentGoldCost)G, \(monumentStoneCost)S")
+        MonumentsOwned.text = String(bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument))
 
     }
 }

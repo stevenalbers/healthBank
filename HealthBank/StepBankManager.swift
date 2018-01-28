@@ -42,7 +42,8 @@ class BuildingRealm: Object
     @objc dynamic var farm: Int = 0
     @objc dynamic var sawmill: Int = 0
     @objc dynamic var quarry: Int = 0
-    
+    @objc dynamic var monument: Int = 0
+
     override class func primaryKey() -> String?
     {
         return "id"

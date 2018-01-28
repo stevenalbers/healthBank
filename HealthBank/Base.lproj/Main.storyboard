@@ -346,7 +346,13 @@
                         <outlet property="GoldLabel" destination="m5r-HU-uBl" id="Ld2-pL-vSP"/>
                         <outlet property="HousePrice" destination="lV9-8e-NL1" id="bhc-CC-ax3"/>
                         <outlet property="HousesOwned" destination="63L-6L-cDY" id="AGD-3R-ik9"/>
+                        <outlet property="MonumentPrice" destination="c4K-eM-qC5" id="eKO-Sh-gdu"/>
+                        <outlet property="MonumentsOwned" destination="PfK-Gb-sqs" id="Xdn-2W-Gtm"/>
                         <outlet property="PopulationLabel" destination="qLa-tM-D1g" id="HVv-jE-vvg"/>
+                        <outlet property="QuarriesOwned" destination="ymv-nd-bMY" id="J8g-Ya-jff"/>
+                        <outlet property="QuarryPrice" destination="tpV-iQ-qST" id="99m-kZ-McX"/>
+                        <outlet property="SawmillPrice" destination="NcZ-gm-B5B" id="D8j-ZZ-xHj"/>
+                        <outlet property="SawmillsOwned" destination="ntZ-R2-m0x" id="7GU-fC-g6W"/>
                         <outlet property="StoneLabel" destination="vO1-ML-BKd" id="NOW-zd-SEn"/>
                         <outlet property="WoodLabel" destination="iME-NY-ixC" id="bQL-X6-4pL"/>
                     </connections>

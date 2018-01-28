@@ -63,6 +63,8 @@ class OverviewController: UIViewController {
     
     // TODO: Generalize this. Either use this for all resources or make a gatekeeper that can call this with any
     // resource as a parameter
+    
+    // ConvertQueriedStepsToResources?
     func AddQueriedGoldToBank(goldToAdd: Int)
     {
         // TODO: Unify these variables so they're only computed once
@@ -70,6 +72,11 @@ class OverviewController: UIViewController {
         let multipliedGold = Int(Double(goldToAdd) * (1 + (populationGoldMultiplier)))
         
         let foodToAdd = Int(((Double(goldToAdd) / 25.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 0.5))))
+        
+        let woodToAdd = Int(((Double(goldToAdd) / 100.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill)) * 0.5))))
+
+        let stoneToAdd = Int(((Double(goldToAdd) / 250.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry)) * 0.5))))
+
 
         // Get the number of calendar days since last login. Because apparently people only eat at midnight
         let calendar = NSCalendar.current
@@ -89,12 +96,21 @@ class OverviewController: UIViewController {
         print("Food Added: \(foodToAdd)")
         print("Food consumed: \(foodToConsume)")
 
-        bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
+        //bankManager.AddGoldToBank(updatedGold: Int(multipliedGold))
+        bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: multipliedGold)
+
         bankManager.AddResourceToBank(resource: RESOURCE.food, toAdd: foodToAdd - foodToConsume)
+        
+        bankManager.AddResourceToBank(resource: RESOURCE.wood, toAdd: woodToAdd)
+
+        bankManager.AddResourceToBank(resource: RESOURCE.stone, toAdd: stoneToAdd)
+
 
         // Update necessary labels here
         GoldGridAmount.text = String(Int(multipliedGold))
         FoodGridAmount.text = String(Int(foodToAdd))
+        WoodGridAmount.text = String(Int(foodToAdd))
+        StoneGridAmount.text = String(Int(foodToAdd))
         StepsLabel.text = String(goldToAdd)
         CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
         
