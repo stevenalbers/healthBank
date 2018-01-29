@@ -55,7 +55,7 @@ class OverviewController: UIViewController {
         // Somehow this dumps all realm data?
         //print(bankManager.date)
 
-        AddQueriedGoldToBank(goldToAdd: stepCount)
+        ConvertQueriedStepsToResources(goldToAdd: stepCount)
         print("All Gold: \(bankManager.GetStepBankValue())")
 
         GoldLabel.text = String(resourceManager.gold)
@@ -64,18 +64,17 @@ class OverviewController: UIViewController {
     // TODO: Generalize this. Either use this for all resources or make a gatekeeper that can call this with any
     // resource as a parameter
     
-    // ConvertQueriedStepsToResources?
-    func AddQueriedGoldToBank(goldToAdd: Int)
+    func ConvertQueriedStepsToResources(goldToAdd: Int)
     {
         // TODO: Unify these variables so they're only computed once
         let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
         let multipliedGold = Int(Double(goldToAdd) * (1 + (populationGoldMultiplier)))
         
-        let foodToAdd = Int(((Double(goldToAdd) / 25.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 0.5))))
+        let foodToAdd = Int(((Double(goldToAdd) / 25.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 1.5)))
         
-        let woodToAdd = Int(((Double(goldToAdd) / 100.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill)) * 0.5))))
+        let woodToAdd = Int(((Double(goldToAdd) / 100.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill)) * 1.5)))
 
-        let stoneToAdd = Int(((Double(goldToAdd) / 250.0) * (1 + (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry)) * 0.5))))
+        let stoneToAdd = Int(((Double(goldToAdd) / 250.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry)) * 1.5)))
 
 
         // Get the number of calendar days since last login. Because apparently people only eat at midnight
@@ -139,7 +138,7 @@ class OverviewController: UIViewController {
         // Somehow this dumps all realm data?
         //print(bankManager.date)
         
-        AddQueriedGoldToBank(goldToAdd: resourceManager.stepsQueried)
+        ConvertQueriedStepsToResources(goldToAdd: resourceManager.stepsQueried)
         print("All Gold: \(bankManager.GetStepBankValue())")
         
         resourceManager.population = bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 2
