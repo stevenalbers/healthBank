@@ -64,7 +64,6 @@ class BuildingViewController: UIViewController {
         guard let button = sender as? UIButton else {
             return
         }
-         //let currentBuildingMultiplier = bankManager.GetBuildingValue() * 0.1
         
         // Refer to which building was purchased here
         // TODO: Even consider finding a way to make this more succinct. There should be a way to generalize
@@ -84,7 +83,7 @@ class BuildingViewController: UIViewController {
             }
             else
             {
-                // TODO: add in how short you are resource-wise
+                // TODO: add in how short you are re`source-wise
                 print("Can't afford")
             }
             break

@@ -28,5 +28,5 @@ class HealthKitManager {
     
     let stepCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
     
-    let goldUnit = HKUnit.count()
+    let stepUnit = HKUnit.count()
 }

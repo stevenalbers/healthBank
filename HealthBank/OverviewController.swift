@@ -188,7 +188,7 @@ class OverviewController: UIViewController {
         let predicate = HKQuery.predicateForSamples(withStart: previousDate, end: Date(), options: .strictStartDate)
         let statisticsSumQuery = HKStatisticsQuery(quantityType: healthKitManager.stepCount!, quantitySamplePredicate: predicate, options: sumOption) { [unowned self] (query, result, error) in
             if let newStepQuantity = result?.sumQuantity() {
-                numberOfSteps = Int(newStepQuantity.doubleValue(for: self.healthKitManager.goldUnit))
+                numberOfSteps = Int(newStepQuantity.doubleValue(for: self.healthKitManager.stepUnit))
                 print ("Query steps: \(numberOfSteps)")
                 self.resourceManager.stepsQueried = numberOfSteps
             }

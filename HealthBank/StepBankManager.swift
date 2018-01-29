@@ -70,7 +70,7 @@ class StepBankManager
             
             try! realm.write() { // 2
                 
-                let defaultGold = 10000
+                let defaultGold = 30000
                 let defaultFood = 500
                 let defaultWood = 150
 
@@ -202,6 +202,7 @@ class StepBankManager
             buildingUpdate.id = newID
             
             // Decide building type here
+            // TODO: One-line this. Should be able to access the buildingUpdate value directly
             switch(currentBuilding)
             {
             case "house":
@@ -210,6 +211,16 @@ class StepBankManager
             case "farm":
                 buildingUpdate.farm = 1
                 break
+            case "sawmill":
+                buildingUpdate.sawmill = 1
+                break
+            case "quarry":
+                buildingUpdate.quarry = 1
+                break
+            case "monument":
+                buildingUpdate.monument = 1
+                break
+
             default:
                 print("Error: Incorrect building")
             }
@@ -217,15 +228,6 @@ class StepBankManager
             //self.realm.add(bankUpdate!, update: false)
             self.realm.create(BuildingRealm.self, value: buildingUpdate, update: false)
         }
-    }
-    
-    // TODO: Have this return the value of a specified building, not just any building in the database
-    func GetBuildingValue() -> Double
-    {
-        let building = realm.objects(BuildingRealm.self)
-        let buildingTotal = building.count
-        
-        return Double(buildingTotal)
     }
     
     func GetNumberOfBuildings(buildingType : BUILDING) -> Int
