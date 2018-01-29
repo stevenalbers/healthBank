@@ -189,25 +189,6 @@ class StepBankManager
         print("RM Gold: \(resourceManager.gold)")
     }
     
-    func AddGoldToBank(updatedGold: Int)
-    {
-        let bank = realm.objects(BankRealm.self)
-        let newID = (bank.last?.id)! + 1
-        
-        try! realm.write()
-        {
-            let bankUpdate = BankRealm()
-            bankUpdate.gold = updatedGold
-            bankUpdate.lastLogin = Date()
-            bankUpdate.id = newID
-            //self.realm.add(bankUpdate!, update: false)
-            self.realm.create(BankRealm.self, value: bankUpdate, update: false)
-        }
-        resourceManager.gold = GetStepBankValue()
-        print("RM! Gold: \(resourceManager.gold)")
-
-    }
-    
     func AddBuilding(buildingType : BUILDING)
     {
         let building = realm.objects(BuildingRealm.self)

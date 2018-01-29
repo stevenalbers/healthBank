@@ -369,14 +369,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IVH-jk-Xif">
-                                <rect key="frame" x="140" y="528" width="94" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <state key="normal" title="Update Gold"/>
-                                <connections>
-                                    <action selector="UpdateGold:" destination="GNu-td-STW" eventType="touchUpInside" id="4GX-eL-ICL"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Greetings!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gyA-Zs-3AT">
                                 <rect key="frame" x="91" y="70" width="192" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -494,7 +486,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Qe-Ok-QaL" userLabel="GoldAmount">
-                                        <rect key="frame" x="25" y="17" width="45" height="21"/>
+                                        <rect key="frame" x="0.0" y="17" width="96" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
@@ -508,7 +500,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6tN-Vo-NFE" userLabel="FoodAmount">
-                                        <rect key="frame" x="257" y="17" width="45" height="21"/>
+                                        <rect key="frame" x="230" y="17" width="99" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
@@ -522,7 +514,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nbK-Ke-7ov" userLabel="WoodAmount">
-                                        <rect key="frame" x="25" y="135" width="45" height="21"/>
+                                        <rect key="frame" x="8" y="135" width="88" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
@@ -536,7 +528,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4kb-vA-KwH" userLabel="StoneAmount">
-                                        <rect key="frame" x="257" y="135" width="45" height="21"/>
+                                        <rect key="frame" x="230" y="135" width="99" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Md5-ff-MyW" userLabel="FoodBreakdown">
+                                        <rect key="frame" x="230" y="2" width="99" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
@@ -580,6 +579,7 @@
                     <connections>
                         <outlet property="CurrentMultiplier" destination="Rrq-G7-Tvn" id="wNV-lN-gYO"/>
                         <outlet property="FoodGridAmount" destination="6tN-Vo-NFE" id="MZp-5d-eEZ"/>
+                        <outlet property="FoodGridBreakdown" destination="Md5-ff-MyW" id="wUt-GL-tRA"/>
                         <outlet property="FoodLabel" destination="bFT-6b-uNm" id="zAC-dx-sdR"/>
                         <outlet property="GoldGridAmount" destination="3Qe-Ok-QaL" id="f4d-Te-Os3"/>
                         <outlet property="GoldLabel" destination="ycO-ZB-r9h" id="3Ce-mX-IhL"/>

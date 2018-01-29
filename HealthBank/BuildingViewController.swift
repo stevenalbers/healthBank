@@ -73,7 +73,6 @@ class BuildingViewController: UIViewController {
         case 1: // House
             let goldCost = 7500 + bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 750
 
-            print("Building cost: \(goldCost)")
             if(resourceManager.gold - goldCost >= 0)
             {
                 bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: Int(-goldCost))
