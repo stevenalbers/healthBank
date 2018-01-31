@@ -48,6 +48,7 @@ class BuildingRealm: Object
     {
         return "id"
     }
+
 }
 
 class StepBankManager

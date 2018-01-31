@@ -64,37 +64,46 @@ class OverviewController: UIViewController {
     // TODO: Generalize this. Either use this for all resources or make a gatekeeper that can call this with any
     // resource as a parameter
     
-    func ConvertQueriedStepsToResources(stepsToAdd: Int)
+    func ConvertQueriedStepsToResources(stepsToAdd: inout Int)
     {
+        let monumentFactor = bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument) + 1
+        print("Monument: \(monumentFactor)")
+
+        // Debug mode: get a random number of steps to add
+        stepsToAdd = Int(arc4random_uniform(5001) + 5000)
+
         // TODO: Unify these variables so they're only computed once
         let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
-        let multipliedGold = Int(Double(stepsToAdd) * (1 + (populationGoldMultiplier)))
+
+        let multipliedGold = Int(Double(stepsToAdd) * (1 + (populationGoldMultiplier)) * Double(monumentFactor))
         
-        let foodToAdd = Int(((Double(stepsToAdd) / 25.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 1.5)))
+        let foodToAdd = Int(((Double(stepsToAdd) / 50.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 1.5)))
         
         let woodToAdd = Int(((Double(stepsToAdd) / 100.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill)) * 1.5)))
 
         let stoneToAdd = Int(((Double(stepsToAdd) / 250.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry)) * 1.5)))
 
-
         // Get the number of calendar days since last login. Because apparently people only eat at midnight
         let calendar = NSCalendar.current
         
         // Replace the hour (time) of both dates with 00:00
-        let date1 = calendar.startOfDay(for: bankManager.GetLastLogin())
+//        let date1 = calendar.startOfDay(for: bankManager.GetLastLogin())
+        let date1 = calendar.date(byAdding: .day, value: -2, to: Date())!
         let date2 = calendar.startOfDay(for: Date())
+        print(date1)
+        print(date2)
         
         let components = calendar.dateComponents([.day], from: date1, to: date2)
 
-        let foodToConsume = Int(components.day! * (resourceManager.population * 5))
-
+        let foodToConsume = Int(components.day! * (resourceManager.population * 20))
+        print("Day: \(components.day!)")
         // Removed alongside label removal
 //        let currentBuildingMultiplier = populationGoldMultiplier * 0.1
 //        let buildingCost = 1000 * pow(2.0, currentBuildingMultiplier)
         print("Gold Added: \(multipliedGold)")
         print("Food Added: \(foodToAdd)")
         print("Food consumed: \(foodToConsume)")
-
+        
         bankManager.AddResourceToBank(resource: RESOURCE.gold, toAdd: multipliedGold)
 
         bankManager.AddResourceToBank(resource: RESOURCE.food, toAdd: foodToAdd - foodToConsume)
@@ -106,12 +115,12 @@ class OverviewController: UIViewController {
 
         // Update necessary labels here
         GoldGridAmount.text = String(Int(multipliedGold))
-        FoodGridAmount.text = String(Int(foodToAdd))
+        FoodGridAmount.text = String(Int(foodToAdd - foodToConsume))
         FoodGridBreakdown.text = String("(\(foodToAdd) - \(foodToConsume))")
         
-        WoodGridAmount.text = String(Int(foodToAdd))
-        StoneGridAmount.text = String(Int(foodToAdd))
-        StepsLabel.text = String(stepsToAdd)
+        WoodGridAmount.text = String(Int(woodToAdd))
+        StoneGridAmount.text = String(Int(stoneToAdd))
+        StepsLabel.text = String(stepsToAdd / monumentFactor)
         CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
     }
     
@@ -120,7 +129,8 @@ class OverviewController: UIViewController {
         print(Realm.Configuration.defaultConfiguration.description)
         // Do any additional setup after loading the view, typically from a nib.
         bankManager.InitializeRealmData()
-        
+        bankManager.UpdateResources()
+
         GatherStepData()
         resourceManager.stepsQueried = QueryStepsSum(previousDate: bankManager.GetLastLogin())
         
@@ -133,7 +143,9 @@ class OverviewController: UIViewController {
         // Somehow this dumps all realm data?
         //print(bankManager.date)
         
-        ConvertQueriedStepsToResources(stepsToAdd: resourceManager.stepsQueried)
+        // Debug steps need to pass by reference, comment this out for release
+        ConvertQueriedStepsToResources(stepsToAdd: &resourceManager.stepsQueried)
+//        ConvertQueriedStepsToResources(stepsToAdd: resourceManager.stepsQueried)
         print("All steps: \(bankManager.GetStepBankValue())")
         
         resourceManager.population = (bankManager.GetNumberOfBuildings(buildingType: BUILDING.house) * 2) + 5
@@ -208,6 +220,10 @@ class OverviewController: UIViewController {
         WoodLabel.text = String(resourceManager.wood)
         StoneLabel.text = String(resourceManager.stone)
         PopulationLabel.text = String(resourceManager.population)
+        
+        let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
+        CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
+
     }
     
 
