@@ -51,6 +51,19 @@ class BuildingRealm: Object
 
 }
 
+class WorkerRealm: Object
+{
+    @objc dynamic var id: Int = 0
+    @objc dynamic var farmers: Int = 0
+    @objc dynamic var woodcutters: Int = 0
+    @objc dynamic var stonemasons: Int = 0
+    
+    override class func primaryKey() -> String?
+    {
+        return "id"
+    }
+}
+
 class StepBankManager
 {
     // TODO: Make try with do/catch handling
@@ -67,6 +80,8 @@ class StepBankManager
         
         let buildings = realm.objects(BuildingRealm.self)
     
+        let workers = realm.objects(WorkerRealm.self)
+        
         if (bank.isEmpty == true) { // 1
             
             try! realm.write() { // 2
@@ -95,7 +110,15 @@ class StepBankManager
                 self.realm.add(newBuildings)
             }
         }
-        
+    
+        if(workers.isEmpty == true)
+        {
+            try! realm.write() { // 2
+                
+                let newWorkers = WorkerRealm()
+                self.realm.add(newWorkers)
+            }
+        }
         
     }
     

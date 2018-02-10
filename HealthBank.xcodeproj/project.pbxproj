@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2419012D1E221446000DCA1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2419012C1E221446000DCA1B /* CoreData.framework */; };
 		241901301E2214F0000DCA1B /* Bank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2419012E1E2214F0000DCA1B /* Bank.xcdatamodeld */; };
+		2423FCF9202FA54200307D0D /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2423FCF8202FA54200307D0D /* WorkerViewController.swift */; };
 		247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C763F1E1CB16C0099473D /* AppDelegate.swift */; };
 		247C76421E1CB16C0099473D /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C76411E1CB16C0099473D /* OverviewController.swift */; };
 		247C76451E1CB16C0099473D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247C76431E1CB16C0099473D /* Main.storyboard */; };
@@ -100,6 +101,7 @@
 		0E09F7941989F8509D217C96 /* Pods-HealthBankTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthBankTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthBankTests/Pods-HealthBankTests.release.xcconfig"; sourceTree = "<group>"; };
 		2419012C1E221446000DCA1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2419012F1E2214F0000DCA1B /* Bank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bank.xcdatamodel; sourceTree = "<group>"; };
+		2423FCF8202FA54200307D0D /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
 		242C225B1E51719200FF6E0E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		242C225C1E51719200FF6E0E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		247C763C1E1CB16C0099473D /* HealthBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 				247C763F1E1CB16C0099473D /* AppDelegate.swift */,
 				247C76411E1CB16C0099473D /* OverviewController.swift */,
 				24C5DB571EDB6C2C0051FB8A /* BuildingViewController.swift */,
+				2423FCF8202FA54200307D0D /* WorkerViewController.swift */,
 				24C5DB551EDB6B570051FB8A /* TabViewController.swift */,
 				24C5DB531EDB6ADE0051FB8A /* StepBankManager.swift */,
 				24C5DB591EDBE4D30051FB8A /* ResourceManager.swift */,
@@ -780,6 +783,7 @@
 				24C5DB561EDB6B570051FB8A /* TabViewController.swift in Sources */,
 				247C76401E1CB16C0099473D /* AppDelegate.swift in Sources */,
 				24DB38B01E1E1498009BAB88 /* HealthKitManager.swift in Sources */,
+				2423FCF9202FA54200307D0D /* WorkerViewController.swift in Sources */,
 				24C5DB581EDB6C2C0051FB8A /* BuildingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
