@@ -41,13 +41,14 @@ class OverviewController: UIViewController {
     
     // Debug mode: get a random number of steps to add
     @IBAction func AddSteps(_ sender: Any) {
-        let stepsToAdd = Int(arc4random_uniform(5001) + 10000)
+        let stepsToAdd = Int(arc4random_uniform(10001) + 5000)
+        let foodGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.farmer)) * 0.1)
 
         ConvertQueriedStepsToResources(stepsQueried: stepsToAdd)
         
         let foodToConsume = resourceManager.population * 20
         
-        let foodToAdd = Int(((Double(stepsToAdd) / 50.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 1.5)))
+        let foodToAdd = Int(((Double(stepsToAdd) / 50.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * foodGainFactor)))
 
         bankManager.AddResourceToBank(resource: RESOURCE.food, toAdd: -foodToConsume)
         FoodGridAmount.text = String(Int(foodToAdd - foodToConsume))
@@ -61,6 +62,10 @@ class OverviewController: UIViewController {
     
     func ConvertQueriedStepsToResources(stepsQueried: Int)
     {
+        let foodGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.farmer)) * 0.1)
+        let woodGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.woodcutter)) * 0.1)
+        let stoneGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.stonemason)) * 0.1)
+        
         // TODO: Rebalance this. It gets pretty nuts later on
         let monumentFactor = bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument) + 1
         print("Monument: \(monumentFactor)")
@@ -74,11 +79,11 @@ class OverviewController: UIViewController {
 
         let multipliedGold = Int(Double(stepsToAdd) * (1 + (populationGoldMultiplier)) * Double(monumentFactor))
         
-        let foodToAdd = Int(((Double(stepsToAdd) / 50.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * 1.5)))
+        let foodToAdd = Int(((Double(stepsToAdd) / 50.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm)) * foodGainFactor)))
         
-        let woodToAdd = Int(((Double(stepsToAdd) / 100.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill)) * 1.5)))
+        let woodToAdd = Int(((Double(stepsToAdd) / 100.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.sawmill)) * woodGainFactor)))
 
-        let stoneToAdd = Int(((Double(stepsToAdd) / 250.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry)) * 1.5)))
+        let stoneToAdd = Int(((Double(stepsToAdd) / 250.0) * (Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry)) * stoneGainFactor)))
 
         // Get the number of calendar days since last login. Because apparently people only eat at midnight
         let calendar = NSCalendar.current

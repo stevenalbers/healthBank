@@ -54,9 +54,9 @@ class BuildingRealm: Object
 class WorkerRealm: Object
 {
     @objc dynamic var id: Int = 0
-    @objc dynamic var farmers: Int = 0
-    @objc dynamic var woodcutters: Int = 0
-    @objc dynamic var stonemasons: Int = 0
+    @objc dynamic var farmer: Int = 0
+    @objc dynamic var woodcutter: Int = 0
+    @objc dynamic var stonemason: Int = 0
     
     override class func primaryKey() -> String?
     {
@@ -254,9 +254,50 @@ class StepBankManager
         }
     }
     
+    func UpdateWorkers(workerType: WORKER, workersAdded: Int)
+    {
+        let worker = realm.objects(WorkerRealm.self)
+        let newID = (worker.last?.id)! + 1
+        
+        let currentWorker: String = workerType.rawValue
+
+        try! realm.write()
+        {
+            let workerUpdate = WorkerRealm()
+            workerUpdate.id = newID
+            
+            // Decide building type here
+            // TODO: One-line this. Should be able to access the buildingUpdate value directly
+            switch(currentWorker)
+            {
+            case "farmer":
+                workerUpdate.farmer = workersAdded
+                break
+            case "woodcutter":
+                workerUpdate.woodcutter = workersAdded
+                break
+            case "stonemason":
+                workerUpdate.stonemason = workersAdded
+                break
+                
+            default:
+                print("Error: Invalid worker")
+            }
+            
+            //self.realm.add(bankUpdate!, update: false)
+            self.realm.create(WorkerRealm.self, value: workerUpdate, update: false)
+        }
+    }
+    
     func GetNumberOfBuildings(buildingType : BUILDING) -> Int
     {
         let building = realm.objects(BuildingRealm.self)
         return building.sum(ofProperty: buildingType.rawValue)
+    }
+    
+    func GetNumberOfWorkers(workerType : WORKER) -> Int
+    {
+        let worker = realm.objects(WorkerRealm.self)
+        return worker.sum(ofProperty: workerType.rawValue)
     }
 }
