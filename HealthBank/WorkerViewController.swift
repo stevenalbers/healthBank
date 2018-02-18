@@ -11,9 +11,11 @@ import HealthKit
 import RealmSwift
 
 enum WORKER : String {
-    case farmer
-    case woodcutter
-    case stonemason
+    case farmer = "farmer"
+    case woodcutter = "woodcutter"
+    case stonemason = "stonemason"
+    
+    static let allWorkers = [farmer, woodcutter, stonemason]
 }
 
 class WorkerViewController: UIViewController {

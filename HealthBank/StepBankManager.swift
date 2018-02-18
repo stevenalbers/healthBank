@@ -300,4 +300,16 @@ class StepBankManager
         let worker = realm.objects(WorkerRealm.self)
         return worker.sum(ofProperty: workerType.rawValue)
     }
+    
+    func GetAllWorkers() -> Int
+    {
+        var workerCount = 0
+        for worker in WORKER.allWorkers
+        {
+            let workerObject = realm.objects(WorkerRealm.self)
+            workerCount = workerCount + workerObject.sum(ofProperty: worker.rawValue)
+        }
+        print ("Worker count : \(workerCount)")
+        return workerCount
+    }
 }
