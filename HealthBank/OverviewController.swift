@@ -218,8 +218,8 @@ class OverviewController: UIViewController {
         FoodLabel.text = String(resourceManager.food)
         WoodLabel.text = String(resourceManager.wood)
         StoneLabel.text = String(resourceManager.stone)
-        PopulationLabel.text = String(resourceManager.population)
-        
+        PopulationLabel.text = "\(bankManager.GetAllWorkers())/\(resourceManager.population)"
+
         let populationGoldMultiplier = Double(bankManager.GetNumberOfBuildings(buildingType: BUILDING.house)) * 0.2
         CurrentMultiplier.text = String(1 + (populationGoldMultiplier))
 

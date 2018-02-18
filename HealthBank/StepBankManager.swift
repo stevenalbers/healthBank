@@ -203,10 +203,6 @@ class StepBankManager
                 self.realm.create(BankRealm.self, value: bankUpdate, update: false)
 
                 break
-            default:
-                // Error
-                print("Bad Resource.")
-                break
             }
         }
         resourceManager.gold = GetStepBankValue()
@@ -309,7 +305,6 @@ class StepBankManager
             let workerObject = realm.objects(WorkerRealm.self)
             workerCount = workerCount + workerObject.sum(ofProperty: worker.rawValue)
         }
-        print ("Worker count : \(workerCount)")
         return workerCount
     }
 }

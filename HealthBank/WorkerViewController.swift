@@ -56,6 +56,12 @@ class WorkerViewController: UIViewController {
             return
         }
         
+        if bankManager.GetAllWorkers() >= resourceManager.population
+        {
+            return
+        }
+
+        
         // Refer to which building was purchased here
         // TODO: Consider finding a way to make this more succinct.
         print(button.tag)
@@ -148,8 +154,8 @@ class WorkerViewController: UIViewController {
         FoodLabel.text = String(resourceManager.food)
         WoodLabel.text = String(resourceManager.wood)
         StoneLabel.text = String(resourceManager.stone)
-        PopulationLabel.text = String(resourceManager.population)
-    }
+        PopulationLabel.text = "\(bankManager.GetAllWorkers())/\(resourceManager.population)"
+        }
     
     func UpdateWorkerView()
     {

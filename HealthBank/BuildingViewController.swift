@@ -181,7 +181,7 @@ class BuildingViewController: UIViewController {
         FoodLabel.text = String(resourceManager.food)
         WoodLabel.text = String(resourceManager.wood)
         StoneLabel.text = String(resourceManager.stone)
-        PopulationLabel.text = String(resourceManager.population)
+        PopulationLabel.text = "\(bankManager.GetAllWorkers())/\(resourceManager.population)"
     }
     
     func UpdateBuildingLabels()
