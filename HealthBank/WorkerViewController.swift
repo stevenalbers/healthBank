@@ -159,9 +159,9 @@ class WorkerViewController: UIViewController {
     
     func UpdateWorkerView()
     {
-        let foodGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.farmer)) * 0.1)
-        let woodGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.woodcutter)) * 0.1)
-        let stoneGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.stonemason)) * 0.1)
+        let foodGainFactor = bankManager.GetGainAmount(staff: bankManager.GetNumberOfWorkers(workerType: WORKER.farmer))
+        let woodGainFactor = bankManager.GetGainAmount(staff: bankManager.GetNumberOfWorkers(workerType: WORKER.woodcutter))
+        let stoneGainFactor = bankManager.GetGainAmount(staff: bankManager.GetNumberOfWorkers(workerType: WORKER.stonemason))
 
         FarmerStaffLabel.text = "\(bankManager.GetNumberOfWorkers(workerType: WORKER.farmer))/\(bankManager.GetNumberOfBuildings(buildingType: BUILDING.farm) * 5)"
         FarmerProductivityLabel.text = "Gain \(foodGainFactor) food per 50 steps"
@@ -171,6 +171,5 @@ class WorkerViewController: UIViewController {
         
         StonemasonStaffLabel.text = "\(bankManager.GetNumberOfWorkers(workerType: WORKER.stonemason))/\(bankManager.GetNumberOfBuildings(buildingType: BUILDING.quarry) * 5)"
         StonemasonProductivityLabel.text = "Gain \(stoneGainFactor) food per 250 steps"
-
     }
 }

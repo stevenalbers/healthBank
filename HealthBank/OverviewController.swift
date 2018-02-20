@@ -62,13 +62,12 @@ class OverviewController: UIViewController {
     
     func ConvertQueriedStepsToResources(stepsQueried: Int)
     {
-        let foodGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.farmer)) * 0.1)
-        let woodGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.woodcutter)) * 0.1)
-        let stoneGainFactor = 1 + (Double(bankManager.GetNumberOfWorkers(workerType: WORKER.stonemason)) * 0.1)
-        
+        let foodGainFactor = bankManager.GetGainAmount(staff: bankManager.GetNumberOfWorkers(workerType: WORKER.farmer))
+        let woodGainFactor = bankManager.GetGainAmount(staff: bankManager.GetNumberOfWorkers(workerType: WORKER.woodcutter))
+        let stoneGainFactor = bankManager.GetGainAmount(staff: bankManager.GetNumberOfWorkers(workerType: WORKER.stonemason))
+
         // TODO: Rebalance this. It gets pretty nuts later on
         let monumentFactor = bankManager.GetNumberOfBuildings(buildingType: BUILDING.monument) + 1
-        print("Monument: \(monumentFactor)")
         
         // Copy parameter to a local version we can modify
         // Until I decide what to do about the monument factor, leave this here even though it doesn't do anything

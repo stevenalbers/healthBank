@@ -307,4 +307,17 @@ class StepBankManager
         }
         return workerCount
     }
+    
+    func GetGainAmount(staff: Int) -> Double
+    {
+        if staff == 0
+        {
+            return 0
+        }
+        if staff % 5 == 0
+        {
+            return 1.05 + (Double(staff) * 0.1)
+        }
+        return 1 + (Double(staff) * 0.1)
+    }
 }
